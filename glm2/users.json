@@ -1,8 +1,8 @@
 {
   "ok": true,
   "schema": 5,
-  "updated_ms": 1795158002000,
-  "updated_str": "2026-11-20 15:00:02",
+  "updated_ms": 1795159802000,
+  "updated_str": "2026-11-20 15:30:02",
   "plans": [
     {
       "key": "glm",
@@ -67,22 +67,22 @@
     },
     "qwen": {
       "5h": {
-        "start": 1795140002,
-        "end": 1795158002,
-        "start_str": "11-20 10:00",
-        "end_str": "11-20 15:00"
+        "start": 1795141802,
+        "end": 1795159802,
+        "start_str": "11-20 10:30",
+        "end_str": "11-20 15:30"
       },
       "7d": {
-        "start": 1794553202,
-        "end": 1795158002,
-        "start_str": "11-13 15:00",
-        "end_str": "11-20 15:00"
+        "start": 1794555002,
+        "end": 1795159802,
+        "start_str": "11-13 15:30",
+        "end_str": "11-20 15:30"
       },
       "30d": {
-        "start": 1792566002,
-        "end": 1795158002,
-        "start_str": "10-21 15:00",
-        "end_str": "11-20 15:00"
+        "start": 1792567802,
+        "end": 1795159802,
+        "start_str": "10-21 15:30",
+        "end_str": "11-20 15:30"
       }
     }
   },
@@ -90,26 +90,26 @@
     {
       "label": "dale***",
       "glm": {
-        "requests_5h": 244,
-        "weighted_5h": 288.0,
+        "requests_5h": 344,
+        "weighted_5h": 512.0,
         "detail_5h": {
           "glm-5.3": {
-            "peak": 174,
+            "peak": 274,
             "off_peak": 70,
-            "weighted": 288.0
+            "weighted": 512.0
           }
         },
-        "requests_7d": 1659,
-        "weighted_7d": 3520.0,
+        "requests_7d": 1759,
+        "weighted_7d": 3760.0,
         "detail_7d": {
           "glm-5.3": {
-            "peak": 276,
+            "peak": 376,
             "off_peak": 1383,
-            "weighted": 3520.0
+            "weighted": 3760.0
           }
         },
-        "weighted_raw_5h": 553.6,
-        "weighted_raw_7d": 2109.0
+        "weighted_raw_5h": 839.2,
+        "weighted_raw_7d": 2394.6
       },
       "qwen": {
         "requests_5h": 0,
