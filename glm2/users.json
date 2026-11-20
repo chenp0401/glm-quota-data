@@ -1,8 +1,8 @@
 {
   "ok": true,
   "schema": 5,
-  "updated_ms": 1795154402000,
-  "updated_str": "2026-11-20 14:00:02",
+  "updated_ms": 1795156202000,
+  "updated_str": "2026-11-20 14:30:02",
   "plans": [
     {
       "key": "glm",
@@ -67,22 +67,22 @@
     },
     "qwen": {
       "5h": {
-        "start": 1795136402,
-        "end": 1795154402,
-        "start_str": "11-20 09:00",
-        "end_str": "11-20 14:00"
+        "start": 1795138202,
+        "end": 1795156202,
+        "start_str": "11-20 09:30",
+        "end_str": "11-20 14:30"
       },
       "7d": {
-        "start": 1794549602,
-        "end": 1795154402,
-        "start_str": "11-13 14:00",
-        "end_str": "11-20 14:00"
+        "start": 1794551402,
+        "end": 1795156202,
+        "start_str": "11-13 14:30",
+        "end_str": "11-20 14:30"
       },
       "30d": {
-        "start": 1792562402,
-        "end": 1795154402,
-        "start_str": "10-21 14:00",
-        "end_str": "11-20 14:00"
+        "start": 1792564202,
+        "end": 1795156202,
+        "start_str": "10-21 14:30",
+        "end_str": "11-20 14:30"
       }
     }
   },
@@ -90,26 +90,26 @@
     {
       "label": "dale***",
       "glm": {
-        "requests_5h": 70,
-        "weighted_5h": 64.4,
+        "requests_5h": 135,
+        "weighted_5h": 112.0,
         "detail_5h": {
           "glm-5.3": {
-            "peak": 0,
+            "peak": 65,
             "off_peak": 70,
-            "weighted": 64.4
+            "weighted": 112.0
           }
         },
-        "requests_7d": 1485,
-        "weighted_7d": 3200.0,
+        "requests_7d": 1551,
+        "weighted_7d": 3360.0,
         "detail_7d": {
           "glm-5.3": {
-            "peak": 102,
+            "peak": 168,
             "off_peak": 1383,
-            "weighted": 3200.0
+            "weighted": 3360.0
           }
         },
-        "weighted_raw_5h": 64.4,
-        "weighted_raw_7d": 1619.8
+        "weighted_raw_5h": 245.2,
+        "weighted_raw_7d": 1803.3
       },
       "qwen": {
         "requests_5h": 0,
