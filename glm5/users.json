@@ -1,0 +1,47 @@
+{
+  "ok": true,
+  "schema": 1,
+  "updated_ms": 1791604803000,
+  "updated_str": "2026-10-10 12:00:03",
+  "plans": [
+    {
+      "key": "glm",
+      "label": "GLM Coding Plan",
+      "model": "glm-5.3 + flash",
+      "windows": [
+        "5h"
+      ],
+      "quota": {
+        "5h": 120
+      },
+      "billing": {
+        "peak": "工作日 14:00–18:00 (UTC+8)",
+        "rates": {
+          "GLM-5.3": {
+            "peak": 3.0,
+            "off_peak": 1.0
+          },
+          "GLM-5.3-Flash": {
+            "peak": 1.2,
+            "off_peak": 0.4
+          }
+        },
+        "unit": "等效 prompts",
+        "base_per_call": 0.9,
+        "token_per_equiv": 300000,
+        "basis": "用户间相对份额估算: 每次调用 0.9 当量 + 每 300000 token 额外 1 当量; ⚠️ 订阅池真实用量以官方接口 percentage 为准"
+      }
+    }
+  ],
+  "windows": {
+    "glm": {
+      "5h": {
+        "start": 1791603204,
+        "end": 1791621204,
+        "start_str": "10-10 11:33",
+        "end_str": "10-10 16:33"
+      }
+    }
+  },
+  "users": []
+}

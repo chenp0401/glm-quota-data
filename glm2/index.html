@@ -1,0 +1,553 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Coding Plan 配额面板</title>
+<meta name="description" content="智谱 GLM Coding Plan（智谱 Max 订阅）配额面板，附 阿里云百炼 Coding Plan 按用户调用次数">
+<style>
+:root{
+  --bg:#f4f6f8; --card:#fff; --line:#e5e8ec; --text:#15181d; --muted:#6b7280;
+  --green:#16a34a; --amber:#d97706; --red:#dc2626; --blue:#2563eb; --purple:#7c3aed;
+  --radius:14px;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font:15px/1.6 -apple-system,BlinkMacSystemFont,"SF Pro SC","PingFang SC","Microsoft YaHei",sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1020px; margin:0 auto; padding:28px 20px 56px}
+
+header{display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; margin-bottom:22px}
+h1{font-size:22px; font-weight:650; margin:0; letter-spacing:-.01em}
+.badge{
+  font-size:12px; font-weight:600; padding:3px 9px; border-radius:999px;
+  background:#eef2ff; color:#4338ca; letter-spacing:.02em;
+}
+.badge.warn{background:#fff7ed; color:#9a3412}
+.meta{margin-left:auto; font-size:13px; color:var(--muted); display:flex; gap:14px; align-items:center}
+
+/* ---- 订阅区块 ---- */
+.section{margin-top:30px}
+.section:first-child{margin-top:0}
+.sec-head{display:flex; align-items:baseline; gap:10px; margin-bottom:13px; flex-wrap:wrap}
+.sec-head h2{font-size:16px; font-weight:650; margin:0; letter-spacing:-.01em}
+.sec-head .src{font-size:12px; color:var(--muted); margin-left:auto}
+
+.cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px}
+.card{
+  background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+  padding:22px; display:flex; gap:20px; align-items:center;
+}
+.ring{position:relative; width:118px; height:118px; flex:none}
+.ring svg{transform:rotate(-90deg)}
+.ring .val{
+  position:absolute; inset:0; display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+}
+.ring .pct{font-size:26px; font-weight:680; letter-spacing:-.02em; line-height:1}
+.ring .pct small{font-size:14px; font-weight:500; margin-left:1px}
+.ring .unit{font-size:11px; color:var(--muted); margin-top:3px}
+
+.info{min-width:0}
+.info h3{margin:0 0 6px; font-size:15px; font-weight:600}
+.info .abs{font-size:12.5px; color:var(--muted); font-variant-numeric:tabular-nums}
+.info .reset{font-size:13px; color:var(--muted); margin-top:5px}
+.info .cd{
+  margin-top:5px; font-size:19px; font-weight:640;
+  font-variant-numeric:tabular-nums; letter-spacing:-.01em;
+}
+.info .cd span{font-size:12px; font-weight:500; color:var(--muted); margin-left:4px}
+.status{
+  display:inline-block; margin-top:9px; font-size:11.5px; font-weight:600;
+  padding:2px 8px; border-radius:6px;
+}
+
+.panel{
+  background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+  padding:20px 22px; margin-top:16px;
+}
+.panel h4{
+  margin:0 0 14px; font-size:14px; font-weight:620; color:var(--text);
+  display:flex; align-items:center; gap:10px;
+}
+.empty{color:var(--muted); font-size:13.5px; padding:26px 0; text-align:center}
+
+
+/* ---- 用户请求次数 ---- */
+.users{width:100%; border-collapse:collapse; font-size:13.5px}
+.users th{
+  text-align:left; font-size:12px; font-weight:600; color:var(--muted);
+  padding:0 0 8px; border-bottom:1px solid var(--line);
+}
+.users th.grp{
+  text-align:center; font-size:12.5px; font-weight:650; color:var(--text);
+  border-bottom:none; padding:0 0 5px;
+}
+.users th.grp:first-child{text-align:left}
+.users th.sub{font-size:11.5px; font-weight:600; padding-top:0}
+.users th.r{text-align:right}
+.users td{padding:10px 0; border-bottom:1px solid #f1f3f5}
+.users tr:last-child td{border-bottom:none}
+.users .uname{
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  font-weight:650; letter-spacing:.02em;
+}
+.users .num{
+  text-align:right; font-weight:650; font-variant-numeric:tabular-nums;
+}
+/* 计数被日志边界截断(日志没那么早) —— 加角标, 别让人当真实值看 */
+.users .num .lo{
+  color:var(--muted); font-weight:500; font-size:10.5px;
+  margin-left:3px; vertical-align:1px;
+}
+/* GLM V2: 次数下方的加权额度(等效 prompts, 模型×时段倍率折算) */
+.users .num .wsub{
+  display:block; color:var(--muted); font-weight:500; font-size:10.5px;
+  margin-top:1px;
+}
+.billing{
+  margin-top:14px; font-size:12.5px; color:var(--muted); line-height:1.75;
+}
+.billing b{color:#374151; font-weight:600}
+.note{margin-top:13px; font-size:12.5px; color:var(--muted); line-height:1.75}
+.note b{color:#374151; font-weight:600}
+
+.err{
+  background:#fef2f2; border:1px solid #fecaca; color:#991b1b;
+  padding:16px 20px; border-radius:var(--radius); font-size:14px;
+}
+footer{margin-top:26px; font-size:12.5px; color:var(--muted); line-height:1.9}
+@media(max-width:520px){ .card{flex-direction:column; text-align:center} .meta{margin-left:0; width:100%} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Coding Plan 配额面板</h1>
+    <div class="meta">
+      <span id="updated">加载中…</span>
+    </div>
+  </header>
+
+  <div id="root">
+    <section class="section" id="sec-glm"><div class="empty">加载中…</div></section>
+    <section class="section" id="sec-qwen"><div class="empty">加载中…</div></section>
+    <section class="section" id="sec-users"><div class="empty">加载中…</div></section>
+  </div>
+
+  <footer>
+    数据来源：两家官方订阅的用量接口，每 30 分钟自动刷新。
+  </footer>
+</div>
+
+<script>
+const R = 54, C = 2 * Math.PI * R;
+const $ = s => document.querySelector(s);
+
+const color = p => p >= 90 ? 'var(--red)' : p >= 75 ? 'var(--amber)' : 'var(--green)';
+const label = p => p >= 100 ? '⛔ 已超限' : p >= 90 ? '🔴 严重' : p >= 75 ? '🟡 警告' : '🟢 正常';
+const tint  = p => p >= 90 ? ['#fef2f2','#991b1b'] : p >= 75 ? ['#fffbeb','#92400e'] : ['#f0fdf4','#166534'];
+
+function ringFrac(frac, stroke){
+  return `<svg viewBox="0 0 120 120" width="118" height="118">
+    <circle cx="60" cy="60" r="${R}" fill="none" stroke="#eceff3" stroke-width="11"/>
+    <circle cx="60" cy="60" r="${R}" fill="none" stroke="${stroke}" stroke-width="11"
+      stroke-linecap="round" stroke-dasharray="${C.toFixed(1)}"
+      stroke-dashoffset="${(C * (1 - Math.min(Math.max(frac,0),1))).toFixed(1)}"/>
+  </svg>`;
+}
+function ring(p){
+  return ringFrac(p / 100, color(p));
+}
+function dur(sec){
+  if (sec <= 0) return ['已到期', ''];
+  const d = Math.floor(sec/86400), h = Math.floor(sec%86400/3600), m = Math.floor(sec%3600/60);
+  if (d > 0) return [`${d} 天 ${h} 小时`, '后重置'];
+  if (h > 0) return [`${h} 小时 ${m} 分`, '后重置'];
+  return [`${m} 分钟`, '后重置'];
+}
+
+// 共用的窗口卡片。智谱官方接口只给百分比, 不给绝对次数。
+function cardsHTML(windows){
+  return `<div class="cards">` + windows.map(w => {
+    const [bg, fg] = tint(w.used_pct);
+    // reset_ms=0/缺失 = 官方接口当前无活动窗口（上一窗口过期后还没发起过调用），
+    // 这不是「已到期」，别吓人——显示待激活状态。真正的已到期（有 reset 时间
+    // 但已过去，即数据滞后未刷新）仍走倒计时的「已到期」分支。
+    const noWin = !w.reset_ms;
+    const resetLine = noWin
+      ? `<div class="reset">当前无活动窗口</div>
+         <div class="cd" style="color:var(--muted,#6b7280)">发起调用后开启新的${w.label}窗口<span></span></div>`
+      : `<div class="reset">重置于 ${w.reset_str || '—'}</div>
+         <div class="cd" data-cd="${w.reset_ms}">—<span>后重置</span></div>`;
+    return `<div class="card">
+      <div class="ring">${ring(w.used_pct)}
+        <div class="val">
+          <div class="pct" style="color:${color(w.used_pct)}">${w.used_pct}<small>%</small></div>
+          <div class="unit">已用</div>
+        </div>
+      </div>
+      <div class="info">
+        <h3>${w.label}窗口</h3>
+        ${resetLine}
+        <span class="status" style="background:${bg};color:${fg}">${label(w.used_pct)}</span>
+      </div>
+    </div>`;
+  }).join('') + `</div>`;
+}
+
+// Qwen 共享订阅池窗口卡: 池级用量(占比环 + used/total 次数) + 窗口区间/重置。
+// 数据与 tokens.uctest.cn 同源同口径(百炼接口); 池级数据缺失时降级显示"待刷新"。
+function qwenCardsHTML(W){
+  const qw = W.qwen || {};
+  return `<div class="cards">` + QWEN_COLS.map(([k, lbl]) => {
+    const w = qw[k];
+    if (!w) return '';
+    const p = (w.used_pct != null) ? w.used_pct : null;
+    const hasPool = p != null;
+    const ringEl = hasPool ? ring(p) : ringFrac(0, '#cbd5e1');
+    const center = hasPool
+      ? `<div class="pct" style="color:${color(p)}">${p}<small>%</small></div>
+         <div class="unit">已用</div>`
+      : `<div class="pct" style="font-size:15px;color:var(--muted)">待刷新</div>
+         <div class="unit">池用量</div>`;
+    const abs = (hasPool && w.total)
+      ? `<div class="abs">${w.used} / ${w.total} 次</div>` : '';
+    const resetLine = w.rolling
+      ? `<div class="reset">滚动恢复 · 每分钟释放 ${lbl}前的消耗</div>`
+      : `<div class="reset">重置于 ${w.end_str}</div>
+         <div class="cd" data-cd="${w.end * 1000}">—<span>后重置</span></div>`;
+    const [bg, fg] = hasPool ? tint(p) : ['#f1f5f9', '#64748b'];
+    return `<div class="card">
+      <div class="ring">${ringEl}<div class="val">${center}</div></div>
+      <div class="info">
+        <h3>${lbl}窗口</h3>
+        ${abs}
+        <div class="reset" style="margin-top:2px">区间 ${w.start_str} → ${w.end_str}</div>
+        ${resetLine}
+        <span class="status" style="background:${bg};color:${fg}">${hasPool ? label(p) : '共享订阅池'}</span>
+      </div>
+    </div>`;
+  }).join('') + `</div>`;
+}
+
+// 用户请求次数面板。数据来自 users.json。
+const PLAN_COLS = [['5h','5 小时'], ['7d','7 天']];
+const QWEN_COLS = [['5h','5 小时'], ['7d','7 天'], ['30d','30 天']];
+
+// 加权额度展示: 整数不带小数, 有小数保留 1 位
+const fmtQuota = v => (Math.abs(Math.round(v) - v) < 0.05)
+  ? String(Math.round(v)) : v.toFixed(1);
+
+// GLM 按模型细分的格子: 次数 + 峰/谷 + V2 加权额度
+function glmCell(u, model, key){
+  const d = ((u.glm || {})['detail_' + key] || {})[model];
+  if (!d) return u.zero ? '<td class="num">0</td>' : '<td class="num">—</td>';
+  const total = (d.peak || 0) + (d.off_peak || 0);
+  const lo = (((u.partial || {}).glm) || []).indexOf(key) >= 0
+    ? '<span class="lo" title="日志未覆盖到该窗口起点，此为下限值">≥</span>' : '';
+  return `<td class="num">${total}${lo}` +
+    `<span class="wsub" title="高峰期(工作日14:00-18:00)调用次数">峰 ${d.peak} · 谷 ${d.off_peak}</span>` +
+    `<span class="wsub" title="本地估算消耗: (0.9 + token÷30万) × 时段倍率">≈ ${fmtQuota(d.weighted)} 当量</span></td>`;
+}
+
+// GLM 两款模型的合计格: 原始调用总数 + 峰/谷合计 + 加权折算后的等效额度总消耗
+// ⭐ 模块级: 当前 GLM plan 元数据(quota 等), 由 usersPanel 赋值。
+//   ⛔ 不要在格子渲染函数里引用 usersPanel 的局部变量(USERS / plan / plans):
+//      这些函数定义在其作用域外, 且三看板 usersPanel 的局部变量并不全等
+//      (订阅1 只有 plans, 无 plan) —— 2026-09-27 为此连踩两次运行时报错。
+let GLM_PLAN = {};
+// ⭐ 2026-10-12: 与守护控制台对齐的行级徽标（封禁中 / 已停用）
+function suspWhen(v){
+  if(!v || v === true) return '用量回落';
+  const d = new Date(v * 1000), p = n => String(n).padStart(2, '0');
+  return `${p(d.getMonth() + 1)}-${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}`;
+}
+function userTags(u){
+  if(u.suspended) return `<span class="badge warn" title="守护封禁中（预计 ${suspWhen(u.suspended)} 恢复，恢复后自动解除）">封禁中</span>`;
+  if(u.disabled) return '<span class="badge" title="账号已停用；控制台启用后此标记自动消失">已停用</span>';
+  return '';
+}
+
+// ⭐ 2026-10-12: 单人额度文案按 users.json plans[0].share 动态生成（与守护控制台份额同步）
+function shareLine(){
+  const pl = GLM_PLAN || {}, q = pl.quota || {}, sh = pl.share;
+  if (!sh) return '';
+  const one = (w, lab) => sh[w] == null ? `${lab} <b>不限</b>`
+    : `${lab} <b>${sh[w]}</b> 当量（池 ${q[w]} 的 ${(sh[w] / q[w] * 100).toFixed(2).replace(/\.?0+$/, '')}%）`;
+  return '单人额度：' + one('5h', '5 小时') + ' · ' + one('7d', '7 天') + '，与守护控制台同步。';
+}
+function shareRed(){
+  const pl = GLM_PLAN || {}, q = pl.quota || {}, sh = pl.share;
+  if (!sh) return null;
+  const p = w => sh[w] == null ? '不限' : (sh[w] / q[w] * 100).toFixed(2).replace(/\.?0+$/, '') + '%';
+  return {t5: p('5h'), t7: p('7d')};
+}
+
+
+function glmSumCell(u, key){
+  const g = u.glm || {};
+  const det = g['detail_' + key] || {};
+  const wv = g['weighted_' + key];
+  let peak = 0, off = 0;
+  Object.keys(det).forEach(m => {
+    peak += det[m].peak || 0;
+    off  += det[m].off_peak || 0;
+  });
+  const total = peak + off;
+  // ⭐ 2026-10-04: 常驻名单用户可能窗口内零调用, 但 wv 是有值的 0.0
+  //   —— 不能因为“全零”就显示破折号, 否则看不出“有这个人但没用”
+  if (total == null && wv == null) return '<td class="num">—</td>';
+  const lo = (((u.partial || {}).glm) || []).indexOf(key) >= 0
+    ? '<span class="lo" title="日志未覆盖到该窗口起点，此为下限值">≥</span>' : '';
+  // ⭐ 2026-09-27: 占用% 改为「占订阅总池」而非「占个人额度」——
+  //    分母与页面上方官方圆环一致, 三人相加即等于官方百分比;
+  //    单人红线固定 1/3≈33.3%, 用户无需再做换算。
+  // ⛔ plan 数据经模块级 GLM_PLAN 传入(见其声明处注释), 勿引用 usersPanel 局部变量。
+  const pl = GLM_PLAN || {};
+  const poolTotal = (pl.quota || {})[key] || 0;
+  // ⭐ 2026-10-12: 红线按窗口取守护判定线（users.json plans[0].share，来自 guard_config.json）——
+  //    此前 5h/7d 共用一个常量，订阅3 只改 5h=800 时 7d 也被显示成 50%（实际 7d=2666=33.33%）。
+  const shv = (u.share && u.share[key] !== undefined) ? u.share[key] : (pl.share || {})[key];
+  const unlim = shv === null;                       // 守护里该窗口份额 = 关（该人不限）
+  const SHARE = unlim ? Infinity
+    : (shv != null ? Math.min(100, shv / poolTotal * 100) : 100 / 3);   // 缺字段 = 旧数据兜底
+  let pctTag = '';
+  if (poolTotal > 0 && wv != null) {
+    const pc = wv / poolTotal * 100;
+    const col = unlim ? '#047857' : (pc >= SHARE ? '#b91c1c' : (pc >= SHARE * 0.8 ? '#c2410c'
+              : (pc >= SHARE * 0.5 ? '#a16207' : '#047857')));
+    const ratio = unlim ? 0 : pc / SHARE * 100;
+    const shTxt = unlim ? '不限（该窗口未设单人份额）'
+      : (shv != null ? shv + ' 当量（池的 ' + SHARE.toFixed(2) + '%）' : '单人公平份额 ' + SHARE.toFixed(2) + '%');
+    pctTag = `<span class="wsub" style="color:${col};font-weight:650" `
+      + `title="占订阅总池 ${poolTotal} 当量。单人判定线 ${shTxt}，${unlim ? '该窗口不封禁。' : '超过即触发封禁。'}当前相当于个人额度的 ${ratio.toFixed(0)}%">`
+      + `占池 ${pc < 1 && pc > 0 ? pc.toFixed(1) : pc.toFixed(0)}% / ${unlim ? '不限' : SHARE.toFixed(2) + '%'}</span>`;
+  }
+  return `<td class="num">${total}${lo}` +
+    `<span class="wsub" title="高峰期(工作日14:00-18:00)调用次数">峰 ${peak} · 谷 ${off}</span>` +
+    `<span class="wsub" title="两款模型合计的本地估算消耗(0.9/次 + token÷30万, 再乘时段倍率)">`
+    + `≈ ${fmtQuota(wv || 0)} 当量</span>` + pctTag + '</td>';
+}
+
+// Qwen 格子: 个人调用次数。无孪生账号(字段缺失)显示 — , 有账号但零调用显示 0。
+function qwenCell(u, key){
+  const q = u.qwen || {};
+  const v = q['requests_' + key];
+  if (v == null) return '<td class="num">—</td>';
+  const lo = (((u.partial || {}).qwen) || []).indexOf(key) >= 0
+    ? '<span class="lo" title="日志未覆盖到该窗口起点，此为下限值">≥</span>' : '';
+  return `<td class="num">${v}${lo}</td>`;
+}
+
+function usersPanel(USERS){
+  if (!USERS || !USERS.users || !USERS.users.length){
+    return `<div class="panel"><h4>按用户统计的请求次数</h4>
+      <div class="empty">暂无数据</div></div>`;
+  }
+
+  const plans = USERS.plans || [];
+  const plan = plans.find(p => p.key === 'glm') || plans[0] || {};
+  const qplan = plans.find(p => p.key === 'qwen');
+  const W = USERS.windows || {};
+
+  // 列组: GLM 按模型拆两组(5.3 / Flash) + 合计列; Qwen 一组(5h/7d/30d)
+  const wins = PLAN_COLS.filter(c => (plan.windows || []).indexOf(c[0]) >= 0);
+  // 把 GLM plan 元数据交给模块级变量, 供 glmSumCell 读取(见其定义处注释)
+  GLM_PLAN = (USERS.plans || []).find(p => p.key === 'glm')
+             || (USERS.plans || [])[0] || {};
+  setTimeout(() => document.querySelectorAll('.share-line').forEach(e => { e.innerHTML = shareLine(); }), 0);
+  // ⭐ 2026-09-27 修: 原判定只看 detail_5h —— 5h 窗口全员零调用时(常见于夜间/
+  //    刚重置)会把 GLM-5.3 / Flash / GLM 合计三列整组隐藏。改为任一窗口有明细即显示。
+  const hasDetail = USERS.users.some(u => u.glm &&
+    (u.glm.detail_5h != null || u.glm.detail_7d != null));
+  const groups = [];
+  if (hasDetail){
+    groups.push(
+      {head: 'GLM-5.3', sub: wins, cell: (u, k) => glmCell(u, 'glm-5.3', k)},
+      {head: 'GLM-5.3-Flash', sub: wins, cell: (u, k) => glmCell(u, 'glm-5.3-flash', k)},
+      {head: 'GLM 合计', sub: wins, cell: (u, k) => glmSumCell(u, k)});
+  } else {
+    groups.push({head: plan.label || 'GLM', sub: wins, cell: (u, k) => {
+      const p = (u.glm || {}); const v = p['requests_' + k];
+      return v == null ? '<td class="num">—</td>' : `<td class="num">${v}</td>`;
+    }});
+  }
+  if (qplan){
+    const qwins = QWEN_COLS.filter(c => (qplan.windows || []).indexOf(c[0]) >= 0);
+    groups.push({head: 'Qwen', sub: qwins, cell: qwenCell});
+  }
+
+  const head1 = '<tr><th class="grp" rowspan="2">用户</th>' +
+    groups.map(g => `<th class="grp" colspan="${g.sub.length}">${g.head}</th>`).join('') +
+    '</tr>';
+  const head2 = '<tr>' +
+    groups.map(g => g.sub.map(([, label]) => `<th class="sub r">${label}</th>`).join('')).join('') +
+    '</tr>';
+  const rows = USERS.users.map(u =>
+    '<tr><td class="uname">' + u.label + (userTags(u) ? ' ' + userTags(u) : '') + '</td>' +
+    groups.map(g => g.sub.map(([k]) => g.cell(u, k)).join('')).join('') +
+    '</tr>').join('');
+
+  // 脚注: GLM 窗口起止
+  const pw = W.glm || {};
+  const seg = wins.map(([k, label]) => {
+    const w = pw[k];
+    if (!w) return `${label} —`;
+    return `${label} <b>${w.start_str} → ${w.end_str}</b>`;
+  }).join(' ・ ');
+
+  // Qwen 窗口起止(共享订阅池窗口, 5h 为滚动)
+  const qw = W.qwen || {};
+  const qseg = QWEN_COLS.map(([k, label]) => {
+    const w = qw[k];
+    if (!w) return `${label} —`;
+    return w.rolling
+      ? `${label} <b>${w.start_str} → ${w.end_str}</b>（滚动恢复）`
+      : `${label} <b>${w.start_str} → ${w.end_str}</b>`;
+  }).join(' ・ ');
+  let qwenNote = '';
+  if (qplan){
+    qwenNote = `<div>阿里云百炼 · ${qplan.model || 'qwen3.7-plus'}：${qseg}</div>`;
+  }
+
+  // GLM V2 计费规则脚注(读 users.json 的 billing 元数据, 缺字段时静默跳过)
+  let billingNote = '';
+  if (plan.billing && plan.quota){
+    billingNote = `<div>表中「峰/谷」为该时段<b>实际调用次数</b>；<b>≈ N 当量</b> 为估算消耗（每次调用 0.9 起步 + 上下文体量加成 × 时段倍率）；<b>占池 X% / 红线%</b> 为<b>占订阅总池</b>的比例，分母与上方官方圆环相同——<b>三人相加即等于官方百分比</b>；红线按窗口取守护份额${(()=>{const t=shareRed();return t?`（5 小时 <b>${t.t5}</b> · 7 天 <b>${t.t7}</b>）`:''})()}，单人用满即被<b>实时拦截</b>（HTTP 403），额度回落后自动恢复。<br>同样一次调用，上下文越大消耗越多：短问答约 0.9 当量，44 万 token 的长会话约 2.4 当量（高峰 ×3 后约 7 当量）。当量总额已按官方接口校准，个人之间按本地日志比例分摊。</div>`;
+  }
+
+  return `<div class="panel">
+    <h4>按用户统计的请求次数</h4>
+    <table class="users">
+      <thead>${head1}${head2}</thead>
+      <tbody>${rows}</tbody>
+    </table>
+    <div class="note"><div>智谱 GLM · GLM-5.3 + Flash + FlashX：${seg}</div>${qwenNote}${billingNote}</div>
+  </div>`;
+}
+
+
+function errBox(name, msg){
+  return `<div class="err">${name} 数据加载失败：${msg}</div>`;
+}
+
+function tick(){
+  document.querySelectorAll('[data-cd]').forEach(el => {
+    const [txt, suf] = dur((+el.dataset.cd - Date.now())/1000);
+    el.innerHTML = `${txt}<span>${suf}</span>`;
+  });
+}
+setInterval(tick, 1000);
+
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+// 数据外置到 public 数据仓库 glm2/
+const DATA_BASE = 'https://raw.githubusercontent.com/chenp0401/glm-quota-data/main/glm2/';
+
+// ⚠️ 不要靠 content-type 判 JSON：raw.githubusercontent.com 对 .json 返回 text/plain。
+async function getJSON(url, {optional = false, tries = 3} = {}){
+  let last = '';
+  for (let i = 0; i < tries; i++){
+    let r;
+    try{ r = await fetch(url + '?t=' + Date.now(), {cache:'no-store'}); }
+    catch(e){ last = '网络请求失败（' + e.message + '）'; await sleep(800 * (i+1)); continue; }
+    if (r.ok){
+      try{ return await r.json(); }
+      catch(e){ last = 'HTTP 200 但内容不是合法 JSON（' + e.message + '）'; }
+    }else{
+      last = 'HTTP ' + r.status + '（' + (r.headers.get('content-type') || '无 content-type') + '）';
+    }
+    if (i < tries - 1) await sleep(800 * (i+1));
+  }
+  if (optional) return null;
+  throw new Error(url + ' —— ' + last);
+}
+
+// 两个数据源各自独立取数、独立渲染：一个挂了不影响另一个显示。
+let newest = 0, stampTxt = '—';
+function markUpdated(ms){
+  if (!ms || ms <= newest) return;
+  newest = ms;
+  stampTxt = new Date(ms).toLocaleString('zh-CN',
+    {month:'2-digit', day:'2-digit', hour:'2-digit', minute:'2-digit', hour12:false});
+  $('#updated').textContent = '最近数据更新 ' + stampTxt;
+}
+
+// 分区级更新时间戳: 两个数据源刷新节奏可能不同, 各分区单独标
+const fmtTime = ms => ms ? new Date(ms).toLocaleTimeString('zh-CN',
+  {hour:'2-digit', minute:'2-digit', hour12:false}) : '—';
+
+async function loadGLM(){
+  const sec = $('#sec-glm');
+  try{
+    const d = await getJSON(DATA_BASE + 'data.json');
+    sec.innerHTML =
+      `<div class="sec-head">
+         <h2>智谱 GLM Coding Plan</h2>
+         ${d.level ? `<span class="badge">${d.level} 套餐</span>` : ''}
+         <span class="badge">V2 计费</span>
+         <span class="src">官方配额接口 · 更新于 ${fmtTime(d.updated_ms)}</span>
+       </div>` +
+      cardsHTML(d.windows || []) +
+      `<div class="billing"><b>⚠️ 两套数字的关系请先看这里：</b>上方圆环的百分比<b>取自官方接口，是唯一权威</b>；下方表格是我们按本地日志估算的<b>用户间相对份额</b>，用于额度分配与封禁判定，<b>两者数值不会完全吻合</b>（实测偏差可达数十个百分点，官方计量口径未完全公开）。<br>本地估算式（2026-09-27 三订阅联合回归标定）：<code>当量 =（0.9 + token数 ÷ 30万）× 时段倍率</code>，即<b>每次调用约 0.9 当量起步，上下文越大额外消耗越多</b>；时段倍率 GLM-5.3 <b>非高峰 ×1 / 高峰 ×3</b>、GLM-5.3-Flash <b>×0.4 / ×1.2</b>、GLM-5.3-FlashX <b>按 GLM-5.3 全价 ×1 / ×3</b>（2026-10-26 起计入），高峰 = 工作日 14:00–18:00（UTC+8）。<span class="share-line">${shareLine()}</span><br><span class="qg-rt-notice"><b>🛡️ 2026-11-07 起份额实时生效：</b>每次请求都按「当前已用 + 本次估算」即时判定，个人用满红线后<b>下一次请求立即返回 HTTP 403</b>「额度已用尽（… 窗口实时估算 X / 红线 当量）」，不再等 5 分钟巡检；5 小时窗口随滚动释放、7 天窗口到重置时刻后<b>自动恢复</b>（最迟约 5 分钟），无需申请解封。看到 403 请先对照下表自己的占比，属于正常限额而非故障。</span></div>`;
+    markUpdated(d.updated_ms);
+    tick();
+  }catch(e){
+    sec.innerHTML = errBox('智谱 GLM Coding Plan', e.message);
+  }
+}
+
+// Qwen 共享订阅池窗口(数据同样来自 users.json 的 windows.qwen, 独立渲染)
+async function loadQwen(){
+  const sec = $('#sec-qwen');
+  try{
+    const u = await getJSON(DATA_BASE + 'users.json', {optional:true});
+    const qw = u && (u.windows || {}).qwen;
+    const qplan = u && (u.plans || []).find(p => p.key === 'qwen');
+    // Qwen 渠道缺失/采集降级时整个区块隐藏, 不占位
+    if (!u || !qw || !qplan){ sec.style.display = 'none'; return; }
+    sec.style.display = '';
+    sec.innerHTML =
+      `<div class="sec-head">
+         <h2>阿里云百炼 Coding Plan</h2>
+         <span class="badge warn">PRO 套餐</span>
+         <span class="src">百炼控制台用量接口 · 更新于 ${fmtTime(u.updated_ms)}</span>
+       </div>` +
+      qwenCardsHTML(u.windows);
+    markUpdated(u.updated_ms);
+    tick();
+  }catch(e){
+    sec.innerHTML = errBox('阿里云百炼', e.message);
+  }
+}
+
+// 按用户统计
+async function loadUsers(){
+  const sec = $('#sec-users');
+  try{
+    const u = await getJSON(DATA_BASE + 'users.json', {optional:true});
+    sec.innerHTML =
+      `<div class="sec-head">
+         <h2>按用户统计</h2>
+         <span class="src">两套订阅各自的消耗明细 · 更新于 ${fmtTime(u && u.updated_ms)}</span>
+       </div>` + usersPanel(u);
+    markUpdated(u && u.updated_ms);
+  }catch(e){
+    sec.innerHTML = errBox('按用户统计', e.message);
+  }
+}
+
+async function load(){
+  await Promise.all([loadGLM(), loadQwen(), loadUsers()]);
+  if (newest === 0) $('#updated').textContent = '数据加载失败';
+}
+
+// 每 5 分钟自动拉取一次最新数据
+load();
+setInterval(load, 5*60*1000);
+</script>
+</body>
+</html>

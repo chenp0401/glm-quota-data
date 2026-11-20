@@ -1,0 +1,45 @@
+{
+  "ok": true,
+  "level": "MAX",
+  "updated_ms": 1795150802836,
+  "updated_str": "2026-11-20 13:00:02",
+  "windows": [
+    {
+      "key": "5h",
+      "label": "5 小时",
+      "used_pct": 1,
+      "reset_ms": 1795162494174,
+      "reset_str": "11-20 16:14",
+      "remain_sec": 11691
+    },
+    {
+      "key": "7d",
+      "label": "7 天",
+      "used_pct": 3,
+      "reset_ms": 1795482046984,
+      "reset_str": "11-24 09:00",
+      "remain_sec": 331244
+    }
+  ],
+  "mcp": {
+    "used": 0,
+    "total": 4000,
+    "pct": 0,
+    "remain": 4000,
+    "reset_str": "12-19 11:35",
+    "details": [
+      {
+        "modelCode": "search-prime",
+        "usage": 0
+      },
+      {
+        "modelCode": "web-reader",
+        "usage": 0
+      },
+      {
+        "modelCode": "zread",
+        "usage": 0
+      }
+    ]
+  }
+}

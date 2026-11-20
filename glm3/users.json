@@ -1,0 +1,157 @@
+{
+  "ok": true,
+  "schema": 5,
+  "updated_ms": 1795150802000,
+  "updated_str": "2026-11-20 13:00:02",
+  "plans": [
+    {
+      "key": "glm",
+      "label": "GLM Coding Plan",
+      "model": "glm-5.3 + flash",
+      "windows": [
+        "5h",
+        "7d"
+      ],
+      "quota": {
+        "5h": 1600,
+        "7d": 8000
+      },
+      "share": {
+        "5h": 1600,
+        "7d": 8000
+      },
+      "billing": {
+        "peak": "工作日 14:00–18:00 (UTC+8)",
+        "rates": {
+          "GLM-5.3": {
+            "peak": 3.0,
+            "off_peak": 1.0
+          },
+          "GLM-5.3-Flash": {
+            "peak": 1.2,
+            "off_peak": 0.4
+          }
+        },
+        "unit": "等效 prompts",
+        "base_per_call": 0.9,
+        "token_per_equiv": 300000,
+        "basis": "用户间相对份额估算: 每次调用 0.9 当量 + 每 300000 token 额外 1 当量(三订阅联合回归, 平均偏差约 5.7 个百分点); ⚠️ 订阅池真实用量以官方接口 percentage 为准"
+      }
+    },
+    {
+      "key": "qwen",
+      "label": "Qwen Coding Plan",
+      "provider": "阿里云百炼",
+      "model": "qwen3.7-plus",
+      "windows": [
+        "5h",
+        "7d",
+        "30d"
+      ]
+    }
+  ],
+  "windows": {
+    "glm": {
+      "5h": {
+        "start": 1795144494,
+        "end": 1795162494,
+        "start_str": "11-20 11:14",
+        "end_str": "11-20 16:14"
+      },
+      "7d": {
+        "start": 1794877246,
+        "end": 1795482046,
+        "start_str": "11-17 09:00",
+        "end_str": "11-24 09:00"
+      }
+    },
+    "qwen": {
+      "5h": {
+        "start": 1795132802,
+        "end": 1795150802,
+        "start_str": "11-20 08:00",
+        "end_str": "11-20 13:00",
+        "used": 67,
+        "total": 6000,
+        "used_pct": 1,
+        "rolling": true
+      },
+      "7d": {
+        "start": 1794758400,
+        "end": 1795363200,
+        "start_str": "11-16 00:00",
+        "end_str": "11-23 00:00",
+        "used": 4605,
+        "total": 45000,
+        "used_pct": 10,
+        "rolling": false
+      },
+      "30d": {
+        "start": 1793635200,
+        "end": 1796227200,
+        "start_str": "11-03 00:00",
+        "end_str": "12-03 00:00",
+        "used": 20706,
+        "total": 90000,
+        "used_pct": 23,
+        "rolling": false
+      }
+    }
+  },
+  "users": [
+    {
+      "label": "dale***",
+      "glm": {
+        "requests_5h": 0,
+        "weighted_5h": 0.0,
+        "requests_7d": 146,
+        "weighted_7d": 152.5,
+        "detail_7d": {
+          "glm-5.3": {
+            "peak": 0,
+            "off_peak": 146,
+            "weighted": 152.5
+          }
+        },
+        "weighted_raw_5h": 0.0,
+        "weighted_raw_7d": 150.1
+      },
+      "qwen": {
+        "requests_5h": 0,
+        "requests_7d": 0,
+        "requests_30d": 85
+      }
+    },
+    {
+      "label": "whoam***",
+      "glm": {
+        "requests_5h": 24,
+        "weighted_5h": 28.9,
+        "detail_5h": {
+          "glm-5.3": {
+            "peak": 0,
+            "off_peak": 24,
+            "weighted": 28.9
+          }
+        },
+        "requests_7d": 81,
+        "weighted_7d": 87.5,
+        "detail_7d": {
+          "glm-5.3": {
+            "peak": 2,
+            "off_peak": 35,
+            "weighted": 46.7
+          },
+          "glm-5.3-flash": {
+            "peak": 20,
+            "off_peak": 24,
+            "weighted": 40.8
+          }
+        },
+        "weighted_raw_5h": 28.9,
+        "weighted_raw_7d": 86.2
+      },
+      "qwen": {}
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "ok": true,
+  "level": "LITE",
+  "updated_ms": 1791612002872,
+  "updated_str": "2026-10-10 14:00:02",
+  "windows": [
+    {
+      "key": "5h",
+      "label": "5 小时",
+      "used_pct": 11,
+      "reset_ms": 1791621204509,
+      "reset_str": "10-10 16:33",
+      "remain_sec": 9201
+    }
+  ],
+  "mcp": {
+    "used": 30,
+    "total": 100,
+    "pct": 30,
+    "remain": 70,
+    "reset_str": "10-26 15:28",
+    "details": [
+      {
+        "modelCode": "search-prime",
+        "usage": 30
+      },
+      {
+        "modelCode": "web-reader",
+        "usage": 0
+      },
+      {
+        "modelCode": "zread",
+        "usage": 0
+      }
+    ]
+  }
+}
