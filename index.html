@@ -450,9 +450,10 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
 // ⛔ 不要恢复成本地 'data.json' 路径 —— 那意味着数据文件回到主仓库，构建重新爆掉。
 const DATA_BASE = 'https://raw.githubusercontent.com/chenp0401/glm-quota-data/main/';
 
-// 托管方对找不到的路径会返回自带的 HTML 404 页。
-// 直接 r.json() 只会抛 "Unexpected token '<'" —— 看不出是 404 还是数据坏了。
-// 所以先校验状态码和 content-type，并对瞬时取不到的情况做退避重试。
+// ⚠️ 不要靠 content-type 判 JSON：
+//    raw.githubusercontent.com 对 .json 文件返回 text/plain; charset=utf-8，
+//    按 content-type 过滤会把合法 JSON 全判为失败（2026-11-20 切 CF Pages 后踩过）。
+//    正确做法：只看状态码 + 实际能否 parse 成 JSON。
 async function getJSON(url, {optional = false, tries = 3} = {}){
   let last = '';
   for (let i = 0; i < tries; i++){
@@ -464,9 +465,16 @@ async function getJSON(url, {optional = false, tries = 3} = {}){
       await sleep(800 * (i+1));
       continue;
     }
-    const ct = (r.headers.get('content-type') || '').toLowerCase();
-    if (r.ok && ct.includes('json')) return r.json();
-    last = 'HTTP ' + r.status + ' · ' + (ct || '无 content-type') + '（期望 JSON）';
+    if (r.ok){
+      // 404 会返回 HTML 页，r.json() 抛 "Unexpected token '<'" —— 正确区分失败原因
+      try{
+        return await r.json();
+      }catch(e){
+        last = 'HTTP 200 但内容不是合法 JSON（' + e.message + '）';
+      }
+    }else{
+      last = 'HTTP ' + r.status + '（' + (r.headers.get('content-type') || '无 content-type') + '）';
+    }
     if (i < tries - 1) await sleep(800 * (i+1));
   }
   if (optional) return null;
