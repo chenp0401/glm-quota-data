@@ -1,0 +1,102 @@
+{
+  "ok": true,
+  "schema": 4,
+  "updated_ms": 1788165464000,
+  "updated_str": "2026-08-31 16:37:44",
+  "plans": [
+    {
+      "key": "glm",
+      "label": "智谱 GLM",
+      "model": "glm-5.3 + flash",
+      "windows": [
+        "5h",
+        "7d"
+      ]
+    },
+    {
+      "key": "qwen",
+      "label": "阿里云百炼",
+      "model": "qwen3.7-plus",
+      "windows": [
+        "5h",
+        "7d",
+        "30d"
+      ]
+    }
+  ],
+  "windows": {
+    "glm": {
+      "5h": {
+        "start": 1788161520,
+        "end": 1788179520,
+        "start_str": "08-31 15:32",
+        "end_str": "08-31 20:32"
+      },
+      "7d": {
+        "start": 1787831318,
+        "end": 1788436118,
+        "start_str": "08-27 19:48",
+        "end_str": "09-03 19:48"
+      }
+    },
+    "qwen": {
+      "5h": {
+        "start": 1788147464,
+        "end": 1788165464,
+        "start_str": "08-31 11:37",
+        "end_str": "08-31 16:37",
+        "rolling": true
+      },
+      "7d": {
+        "start": 1788105600,
+        "end": 1788710400,
+        "start_str": "08-31 00:00",
+        "end_str": "09-07 00:00",
+        "rolling": false
+      },
+      "30d": {
+        "start": 1785772800,
+        "end": 1788364800,
+        "start_str": "08-04 00:00",
+        "end_str": "09-03 00:00",
+        "rolling": false
+      }
+    }
+  },
+  "users": [
+    {
+      "label": "gwt***",
+      "glm": {
+        "requests_5h": 0,
+        "requests_7d": 2425
+      },
+      "qwen": {
+        "requests_5h": 0,
+        "requests_7d": 0,
+        "requests_30d": 12
+      },
+      "partial": {
+        "glm": [],
+        "qwen": []
+      }
+    },
+    {
+      "label": "hzq***",
+      "glm": {
+        "requests_5h": 0,
+        "requests_7d": 260
+      },
+      "qwen": {
+        "requests_5h": 29,
+        "requests_7d": 111,
+        "requests_30d": 521
+      },
+      "partial": {
+        "glm": [],
+        "qwen": [
+          "30d"
+        ]
+      }
+    }
+  ]
+}
