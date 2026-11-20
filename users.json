@@ -1,8 +1,8 @@
 {
   "ok": true,
-  "schema": 4,
-  "updated_ms": 1788165464000,
-  "updated_str": "2026-08-31 16:37:44",
+  "schema": 10,
+  "updated_ms": 1795143796000,
+  "updated_str": "2026-11-20 11:03:16",
   "plans": [
     {
       "key": "glm",
@@ -11,7 +11,29 @@
       "windows": [
         "5h",
         "7d"
-      ]
+      ],
+      "quota": {
+        "5h": 1600,
+        "7d": 8000
+      },
+      "share": {
+        "5h": 1066,
+        "7d": 4000
+      },
+      "billing": {
+        "peak": "工作日 14:00–18:00 (UTC+8)",
+        "rates": {
+          "GLM-5.3": {
+            "peak": 3.0,
+            "off_peak": 1.0
+          },
+          "GLM-5.3-Flash": {
+            "peak": 1.2,
+            "off_peak": 0.4
+          }
+        },
+        "unit": "等效 prompts"
+      }
     },
     {
       "key": "qwen",
@@ -27,53 +49,64 @@
   "windows": {
     "glm": {
       "5h": {
-        "start": 1788161520,
-        "end": 1788179520,
-        "start_str": "08-31 15:32",
-        "end_str": "08-31 20:32"
+        "start": 1795140111,
+        "end": 1795158111,
+        "start_str": "11-20 10:01",
+        "end_str": "11-20 15:01"
       },
       "7d": {
-        "start": 1787831318,
-        "end": 1788436118,
-        "start_str": "08-27 19:48",
-        "end_str": "09-03 19:48"
+        "start": 1794877234,
+        "end": 1795482034,
+        "start_str": "11-17 09:00",
+        "end_str": "11-24 09:00"
       }
     },
     "qwen": {
       "5h": {
-        "start": 1788147464,
-        "end": 1788165464,
-        "start_str": "08-31 11:37",
-        "end_str": "08-31 16:37",
+        "start": 1795125796,
+        "end": 1795143796,
+        "start_str": "11-20 06:03",
+        "end_str": "11-20 11:03",
         "rolling": true
       },
       "7d": {
-        "start": 1788105600,
-        "end": 1788710400,
-        "start_str": "08-31 00:00",
-        "end_str": "09-07 00:00",
+        "start": 1794758400,
+        "end": 1795363200,
+        "start_str": "11-16 00:00",
+        "end_str": "11-23 00:00",
         "rolling": false
       },
       "30d": {
-        "start": 1785772800,
-        "end": 1788364800,
-        "start_str": "08-04 00:00",
-        "end_str": "09-03 00:00",
+        "start": 1793635200,
+        "end": 1796227200,
+        "start_str": "11-03 00:00",
+        "end_str": "12-03 00:00",
         "rolling": false
       }
     }
   },
   "users": [
     {
-      "label": "gwt***",
+      "label": "hzq***",
       "glm": {
         "requests_5h": 0,
-        "requests_7d": 2425
+        "requests_7d": 1198,
+        "weighted_5h": 0.0,
+        "weighted_7d": 887.0,
+        "detail_5h": {},
+        "detail_7d": {
+          "glm-5.3": {
+            "peak": 89,
+            "off_peak": 1109,
+            "weighted": 887.0
+          }
+        },
+        "weighted_raw_7d": 1276.6
       },
       "qwen": {
         "requests_5h": 0,
-        "requests_7d": 0,
-        "requests_30d": 12
+        "requests_7d": 4209,
+        "requests_30d": 17568
       },
       "partial": {
         "glm": [],
@@ -81,21 +114,41 @@
       }
     },
     {
-      "label": "hzq***",
+      "label": "849***",
       "glm": {
-        "requests_5h": 0,
-        "requests_7d": 260
+        "requests_5h": 10,
+        "requests_7d": 1683,
+        "weighted_5h": 3.6,
+        "weighted_7d": 553.0,
+        "detail_5h": {
+          "glm-5.3-flash": {
+            "peak": 0,
+            "off_peak": 10,
+            "weighted": 3.6
+          }
+        },
+        "detail_7d": {
+          "glm-5.3-flash": {
+            "peak": 133,
+            "off_peak": 1449,
+            "weighted": 470.6
+          },
+          "glm-5.3": {
+            "peak": 0,
+            "off_peak": 101,
+            "weighted": 82.5
+          }
+        },
+        "weighted_raw_7d": 796.0
       },
       "qwen": {
-        "requests_5h": 29,
-        "requests_7d": 111,
-        "requests_30d": 521
+        "requests_5h": 2,
+        "requests_7d": 204,
+        "requests_30d": 2010
       },
       "partial": {
         "glm": [],
-        "qwen": [
-          "30d"
-        ]
+        "qwen": []
       }
     }
   ]
