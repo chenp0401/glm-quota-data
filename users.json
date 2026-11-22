@@ -1,8 +1,8 @@
 {
   "ok": true,
   "schema": 10,
-  "updated_ms": 1795343410000,
-  "updated_str": "2026-11-22 18:30:10",
+  "updated_ms": 1795345212000,
+  "updated_str": "2026-11-22 19:00:12",
   "plans": [
     {
       "key": "glm",
@@ -63,10 +63,10 @@
     },
     "qwen": {
       "5h": {
-        "start": 1795325410,
-        "end": 1795343410,
-        "start_str": "11-22 13:30",
-        "end_str": "11-22 18:30",
+        "start": 1795327212,
+        "end": 1795345212,
+        "start_str": "11-22 14:00",
+        "end_str": "11-22 19:00",
         "rolling": true
       },
       "7d": null,
@@ -109,22 +109,22 @@
     {
       "label": "849***",
       "glm": {
-        "requests_5h": 47,
-        "requests_7d": 6422,
-        "weighted_5h": 17.0,
-        "weighted_7d": 2648.0,
+        "requests_5h": 105,
+        "requests_7d": 6480,
+        "weighted_5h": 38.0,
+        "weighted_7d": 2669.0,
         "detail_5h": {
           "glm-5.3-flash": {
             "peak": 0,
-            "off_peak": 47,
-            "weighted": 17.0
+            "off_peak": 105,
+            "weighted": 38.0
           }
         },
         "detail_7d": {
           "glm-5.3-flash": {
             "peak": 256,
-            "off_peak": 6013,
-            "weighted": 2469.6
+            "off_peak": 6071,
+            "weighted": 2490.6
           },
           "glm-5.3": {
             "peak": 0,
@@ -134,7 +134,7 @@
         }
       },
       "qwen": {
-        "requests_5h": 12,
+        "requests_5h": 14,
         "requests_7d": null,
         "requests_30d": null
       },
