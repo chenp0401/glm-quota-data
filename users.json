@@ -1,8 +1,8 @@
 {
   "ok": true,
   "schema": 10,
-  "updated_ms": 1795467609000,
-  "updated_str": "2026-11-24 05:00:09",
+  "updated_ms": 1795469409000,
+  "updated_str": "2026-11-24 05:30:09",
   "plans": [
     {
       "key": "glm",
@@ -49,10 +49,10 @@
   "windows": {
     "glm": {
       "5h": {
-        "start": 1795450807,
-        "end": 1795468807,
-        "start_str": "11-24 00:20",
-        "end_str": "11-24 05:20"
+        "start": 1795468846,
+        "end": 1795486846,
+        "start_str": "11-24 05:20",
+        "end_str": "11-24 10:20"
       },
       "7d": {
         "start": 1794877234,
@@ -63,10 +63,10 @@
     },
     "qwen": {
       "5h": {
-        "start": 1795449609,
-        "end": 1795467609,
-        "start_str": "11-24 00:00",
-        "end_str": "11-24 05:00",
+        "start": 1795451409,
+        "end": 1795469409,
+        "start_str": "11-24 00:30",
+        "end_str": "11-24 05:30",
         "rolling": true
       },
       "7d": null,
@@ -91,7 +91,7 @@
         }
       },
       "qwen": {
-        "requests_5h": 785,
+        "requests_5h": 812,
         "requests_7d": null,
         "requests_30d": null
       },
@@ -103,22 +103,16 @@
     {
       "label": "849***",
       "glm": {
-        "requests_5h": 142,
-        "requests_7d": 8110,
-        "weighted_5h": 51.4,
-        "weighted_7d": 3351.2,
-        "detail_5h": {
-          "glm-5.3-flash": {
-            "peak": 0,
-            "off_peak": 142,
-            "weighted": 51.4
-          }
-        },
+        "requests_5h": 0,
+        "requests_7d": 8119,
+        "weighted_5h": 0.0,
+        "weighted_7d": 3354.5,
+        "detail_5h": {},
         "detail_7d": {
           "glm-5.3-flash": {
             "peak": 282,
-            "off_peak": 7590,
-            "weighted": 3071.8
+            "off_peak": 7599,
+            "weighted": 3075.0
           },
           "glm-5.3": {
             "peak": 0,
@@ -128,7 +122,7 @@
         }
       },
       "qwen": {
-        "requests_5h": 81,
+        "requests_5h": 85,
         "requests_7d": null,
         "requests_30d": null
       },
