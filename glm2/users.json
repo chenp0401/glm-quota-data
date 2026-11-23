@@ -1,8 +1,8 @@
 {
   "ok": true,
   "schema": 5,
-  "updated_ms": 1795395602000,
-  "updated_str": "2026-11-23 09:00:02",
+  "updated_ms": 1795397403000,
+  "updated_str": "2026-11-23 09:30:03",
   "plans": [
     {
       "key": "glm",
@@ -53,10 +53,10 @@
   "windows": {
     "glm": {
       "5h": {
-        "start": 1795395602,
-        "end": 1795395602,
-        "start_str": "11-23 09:00",
-        "end_str": "11-23 09:00"
+        "start": 1795397290,
+        "end": 1795415290,
+        "start_str": "11-23 09:28",
+        "end_str": "11-23 14:28"
       },
       "7d": {
         "start": 1795062467,
@@ -67,10 +67,10 @@
     },
     "qwen": {
       "5h": {
-        "start": 1795377602,
-        "end": 1795395602,
-        "start_str": "11-23 04:00",
-        "end_str": "11-23 09:00",
+        "start": 1795379403,
+        "end": 1795397403,
+        "start_str": "11-23 04:30",
+        "end_str": "11-23 09:30",
         "used": 11,
         "total": 6000,
         "used_pct": 0,
@@ -105,12 +105,12 @@
         "requests_5h": 0,
         "weighted_5h": 0.0,
         "requests_7d": 1881,
-        "weighted_7d": 4080.0,
+        "weighted_7d": 4073.5,
         "detail_7d": {
           "glm-5.3": {
             "peak": 498,
             "off_peak": 1383,
-            "weighted": 4080.0
+            "weighted": 4073.5
           }
         },
         "weighted_raw_5h": 0.0,
@@ -124,20 +124,33 @@
       "suspended": 1795667267
     },
     {
-      "label": "chent***",
+      "label": "whoam***",
       "glm": {
-        "requests_5h": 0,
-        "weighted_5h": 0.0,
-        "requests_7d": 0,
-        "weighted_7d": 0.0,
-        "weighted_raw_5h": 0.0,
-        "weighted_raw_7d": 0.0
+        "requests_5h": 4,
+        "weighted_5h": 4.4,
+        "detail_5h": {
+          "glm-5.3": {
+            "peak": 0,
+            "off_peak": 4,
+            "weighted": 4.4
+          }
+        },
+        "requests_7d": 4,
+        "weighted_7d": 6.5,
+        "detail_7d": {
+          "glm-5.3": {
+            "peak": 0,
+            "off_peak": 4,
+            "weighted": 6.5
+          }
+        },
+        "weighted_raw_5h": 4.4,
+        "weighted_raw_7d": 4.4
       },
-      "qwen": {},
-      "zero": true
+      "qwen": {}
     },
     {
-      "label": "whoam***",
+      "label": "chent***",
       "glm": {
         "requests_5h": 0,
         "weighted_5h": 0.0,
