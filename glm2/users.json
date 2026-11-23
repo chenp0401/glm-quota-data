@@ -1,8 +1,8 @@
 {
   "ok": true,
   "schema": 5,
-  "updated_ms": 1795433402000,
-  "updated_str": "2026-11-23 19:30:02",
+  "updated_ms": 1795435202000,
+  "updated_str": "2026-11-23 20:00:02",
   "plans": [
     {
       "key": "glm",
@@ -53,10 +53,10 @@
   "windows": {
     "glm": {
       "5h": {
-        "start": 1795415856,
-        "end": 1795433856,
-        "start_str": "11-23 14:37",
-        "end_str": "11-23 19:37"
+        "start": 1795435202,
+        "end": 1795435202,
+        "start_str": "11-23 20:00",
+        "end_str": "11-23 20:00"
       },
       "7d": {
         "start": 1795062467,
@@ -67,13 +67,13 @@
     },
     "qwen": {
       "5h": {
-        "start": 1795415402,
-        "end": 1795433402,
-        "start_str": "11-23 14:30",
-        "end_str": "11-23 19:30",
-        "used": 73,
+        "start": 1795417202,
+        "end": 1795435202,
+        "start_str": "11-23 15:00",
+        "end_str": "11-23 20:00",
+        "used": 115,
         "total": 6000,
-        "used_pct": 1,
+        "used_pct": 2,
         "rolling": true
       },
       "7d": {
@@ -81,7 +81,7 @@
         "end": 1795968000,
         "start_str": "11-23 00:00",
         "end_str": "11-30 00:00",
-        "used": 334,
+        "used": 376,
         "total": 45000,
         "used_pct": 1,
         "rolling": false
@@ -91,7 +91,7 @@
         "end": 1796227200,
         "start_str": "11-03 00:00",
         "end_str": "12-03 00:00",
-        "used": 23627,
+        "used": 23669,
         "total": 90000,
         "used_pct": 26,
         "rolling": false
@@ -125,15 +125,8 @@
     {
       "label": "whoam***",
       "glm": {
-        "requests_5h": 25,
-        "weighted_5h": 36.4,
-        "detail_5h": {
-          "glm-5.3-flash": {
-            "peak": 25,
-            "off_peak": 0,
-            "weighted": 36.4
-          }
-        },
+        "requests_5h": 0,
+        "weighted_5h": 0.0,
         "requests_7d": 294,
         "weighted_7d": 316.6,
         "detail_7d": {
@@ -148,7 +141,7 @@
             "weighted": 260.8
           }
         },
-        "weighted_raw_5h": 36.4,
+        "weighted_raw_5h": 0.0,
         "weighted_raw_7d": 221.2
       },
       "qwen": {}
