@@ -1,8 +1,8 @@
 {
   "ok": true,
   "level": "MAX",
-  "updated_ms": 1795451414097,
-  "updated_str": "2026-11-24 00:30:14",
+  "updated_ms": 1795453218382,
+  "updated_str": "2026-11-24 01:00:18",
   "windows": [
     {
       "key": "5h",
@@ -10,7 +10,7 @@
       "used_pct": 1,
       "reset_ms": 1795468807279,
       "reset_str": "11-24 05:20",
-      "remain_sec": 17393
+      "remain_sec": 15588
     },
     {
       "key": "7d",
@@ -18,14 +18,14 @@
       "used_pct": 38,
       "reset_ms": 1795482034983,
       "reset_str": "11-24 09:00",
-      "remain_sec": 30620
+      "remain_sec": 28816
     }
   ],
   "mcp": {
-    "used": 7,
+    "used": 8,
     "total": 4000,
     "pct": 1,
-    "remain": 3993,
+    "remain": 3992,
     "reset_str": "12-13 19:48",
     "details": [
       {
@@ -34,7 +34,7 @@
       },
       {
         "modelCode": "web-reader",
-        "usage": 2
+        "usage": 3
       },
       {
         "modelCode": "zread",
