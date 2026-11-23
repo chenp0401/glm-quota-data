@@ -1,8 +1,8 @@
 {
   "ok": true,
   "schema": 5,
-  "updated_ms": 1795453202000,
-  "updated_str": "2026-11-24 01:00:02",
+  "updated_ms": 1795455002000,
+  "updated_str": "2026-11-24 01:30:02",
   "plans": [
     {
       "key": "glm",
@@ -53,10 +53,10 @@
   "windows": {
     "glm": {
       "5h": {
-        "start": 1795436636,
-        "end": 1795454636,
-        "start_str": "11-23 20:23",
-        "end_str": "11-24 01:23"
+        "start": 1795454643,
+        "end": 1795472643,
+        "start_str": "11-24 01:24",
+        "end_str": "11-24 06:24"
       },
       "7d": {
         "start": 1794877246,
@@ -67,11 +67,11 @@
     },
     "qwen": {
       "5h": {
-        "start": 1795435202,
-        "end": 1795453202,
-        "start_str": "11-23 20:00",
-        "end_str": "11-24 01:00",
-        "used": 318,
+        "start": 1795437002,
+        "end": 1795455002,
+        "start_str": "11-23 20:30",
+        "end_str": "11-24 01:30",
+        "used": 296,
         "total": 6000,
         "used_pct": 5,
         "rolling": true
@@ -102,30 +102,23 @@
     {
       "label": "dale***",
       "glm": {
-        "requests_5h": 514,
-        "weighted_5h": 512.0,
-        "detail_5h": {
-          "glm-5.3": {
-            "peak": 0,
-            "off_peak": 514,
-            "weighted": 512.0
-          }
-        },
+        "requests_5h": 0,
+        "weighted_5h": 0.0,
         "requests_7d": 1130,
-        "weighted_7d": 2160.0,
+        "weighted_7d": 2320.0,
         "detail_7d": {
           "glm-5.3": {
             "peak": 456,
             "off_peak": 668,
-            "weighted": 2152.5
+            "weighted": 2312.0
           },
           "glm-5.3-flash": {
             "peak": 6,
             "off_peak": 0,
-            "weighted": 7.5
+            "weighted": 8.0
           }
         },
-        "weighted_raw_5h": 464.9,
+        "weighted_raw_5h": 0.0,
         "weighted_raw_7d": 1875.2
       },
       "qwen": {
