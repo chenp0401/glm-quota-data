@@ -1,8 +1,8 @@
 {
   "ok": true,
   "schema": 5,
-  "updated_ms": 1795415402000,
-  "updated_str": "2026-11-23 14:30:02",
+  "updated_ms": 1795417202000,
+  "updated_str": "2026-11-23 15:00:02",
   "plans": [
     {
       "key": "glm",
@@ -53,10 +53,10 @@
   "windows": {
     "glm": {
       "5h": {
-        "start": 1795415402,
-        "end": 1795415402,
-        "start_str": "11-23 14:30",
-        "end_str": "11-23 14:30"
+        "start": 1795415856,
+        "end": 1795433856,
+        "start_str": "11-23 14:37",
+        "end_str": "11-23 19:37"
       },
       "7d": {
         "start": 1795062467,
@@ -67,11 +67,11 @@
     },
     "qwen": {
       "5h": {
-        "start": 1795397402,
-        "end": 1795415402,
-        "start_str": "11-23 09:30",
-        "end_str": "11-23 14:30",
-        "used": 133,
+        "start": 1795399202,
+        "end": 1795417202,
+        "start_str": "11-23 10:00",
+        "end_str": "11-23 15:00",
+        "used": 131,
         "total": 6000,
         "used_pct": 2,
         "rolling": true
@@ -105,12 +105,12 @@
         "requests_5h": 0,
         "weighted_5h": 0.0,
         "requests_7d": 1881,
-        "weighted_7d": 3972.2,
+        "weighted_7d": 3923.4,
         "detail_7d": {
           "glm-5.3": {
             "peak": 498,
             "off_peak": 1383,
-            "weighted": 3972.2
+            "weighted": 3923.4
           }
         },
         "weighted_raw_5h": 0.0,
@@ -125,24 +125,31 @@
     {
       "label": "whoam***",
       "glm": {
-        "requests_5h": 0,
-        "weighted_5h": 0.0,
-        "requests_7d": 269,
-        "weighted_7d": 267.8,
+        "requests_5h": 25,
+        "weighted_5h": 36.4,
+        "detail_5h": {
+          "glm-5.3-flash": {
+            "peak": 25,
+            "off_peak": 0,
+            "weighted": 36.4
+          }
+        },
+        "requests_7d": 294,
+        "weighted_7d": 316.6,
         "detail_7d": {
           "glm-5.3": {
             "peak": 0,
             "off_peak": 33,
-            "weighted": 56.5
+            "weighted": 55.8
           },
           "glm-5.3-flash": {
-            "peak": 0,
+            "peak": 25,
             "off_peak": 236,
-            "weighted": 211.3
+            "weighted": 260.8
           }
         },
-        "weighted_raw_5h": 0.0,
-        "weighted_raw_7d": 184.8
+        "weighted_raw_5h": 36.4,
+        "weighted_raw_7d": 221.2
       },
       "qwen": {}
     },
