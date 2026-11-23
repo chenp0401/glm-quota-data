@@ -1,8 +1,8 @@
 {
   "ok": true,
   "schema": 5,
-  "updated_ms": 1795474803000,
-  "updated_str": "2026-11-24 07:00:03",
+  "updated_ms": 1795476602000,
+  "updated_str": "2026-11-24 07:30:02",
   "plans": [
     {
       "key": "glm",
@@ -53,10 +53,10 @@
   "windows": {
     "glm": {
       "5h": {
-        "start": 1795474803,
-        "end": 1795474803,
-        "start_str": "11-24 07:00",
-        "end_str": "11-24 07:00"
+        "start": 1795475469,
+        "end": 1795493469,
+        "start_str": "11-24 07:11",
+        "end_str": "11-24 12:11"
       },
       "7d": {
         "start": 1794877246,
@@ -67,11 +67,11 @@
     },
     "qwen": {
       "5h": {
-        "start": 1795456803,
-        "end": 1795474803,
-        "start_str": "11-24 02:00",
-        "end_str": "11-24 07:00",
-        "used": 884,
+        "start": 1795458602,
+        "end": 1795476602,
+        "start_str": "11-24 02:30",
+        "end_str": "11-24 07:30",
+        "used": 874,
         "total": 6000,
         "used_pct": 15,
         "rolling": true
@@ -81,7 +81,7 @@
         "end": 1795968000,
         "start_str": "11-23 00:00",
         "end_str": "11-30 00:00",
-        "used": 1609,
+        "used": 1619,
         "total": 45000,
         "used_pct": 4,
         "rolling": false
@@ -91,7 +91,7 @@
         "end": 1796227200,
         "start_str": "11-03 00:00",
         "end_str": "12-03 00:00",
-        "used": 24902,
+        "used": 24912,
         "total": 90000,
         "used_pct": 28,
         "rolling": false
@@ -105,17 +105,17 @@
         "requests_5h": 0,
         "weighted_5h": 0.0,
         "requests_7d": 1130,
-        "weighted_7d": 2320.0,
+        "weighted_7d": 2480.0,
         "detail_7d": {
           "glm-5.3": {
             "peak": 456,
             "off_peak": 668,
-            "weighted": 2312.0
+            "weighted": 2471.4
           },
           "glm-5.3-flash": {
             "peak": 6,
             "off_peak": 0,
-            "weighted": 8.0
+            "weighted": 8.6
           }
         },
         "weighted_raw_5h": 0.0,
