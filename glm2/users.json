@@ -1,8 +1,8 @@
 {
   "ok": true,
   "schema": 5,
-  "updated_ms": 1795417202000,
-  "updated_str": "2026-11-23 15:00:02",
+  "updated_ms": 1795419002000,
+  "updated_str": "2026-11-23 15:30:02",
   "plans": [
     {
       "key": "glm",
@@ -67,11 +67,11 @@
     },
     "qwen": {
       "5h": {
-        "start": 1795399202,
-        "end": 1795417202,
-        "start_str": "11-23 10:00",
-        "end_str": "11-23 15:00",
-        "used": 131,
+        "start": 1795401002,
+        "end": 1795419002,
+        "start_str": "11-23 10:30",
+        "end_str": "11-23 15:30",
+        "used": 117,
         "total": 6000,
         "used_pct": 2,
         "rolling": true
