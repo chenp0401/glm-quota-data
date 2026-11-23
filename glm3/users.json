@@ -1,8 +1,8 @@
 {
   "ok": true,
   "schema": 5,
-  "updated_ms": 1795444202000,
-  "updated_str": "2026-11-23 22:30:02",
+  "updated_ms": 1795446003000,
+  "updated_str": "2026-11-23 23:00:03",
   "plans": [
     {
       "key": "glm",
@@ -67,13 +67,13 @@
     },
     "qwen": {
       "5h": {
-        "start": 1795426202,
-        "end": 1795444202,
-        "start_str": "11-23 17:30",
-        "end_str": "11-23 22:30",
-        "used": 377,
+        "start": 1795428003,
+        "end": 1795446003,
+        "start_str": "11-23 18:00",
+        "end_str": "11-23 23:00",
+        "used": 406,
         "total": 6000,
-        "used_pct": 6,
+        "used_pct": 7,
         "rolling": true
       },
       "7d": {
@@ -81,9 +81,9 @@
         "end": 1795968000,
         "start_str": "11-23 00:00",
         "end_str": "11-30 00:00",
-        "used": 646,
+        "used": 675,
         "total": 45000,
-        "used_pct": 1,
+        "used_pct": 2,
         "rolling": false
       },
       "30d": {
@@ -91,7 +91,7 @@
         "end": 1796227200,
         "start_str": "11-03 00:00",
         "end_str": "12-03 00:00",
-        "used": 23939,
+        "used": 23968,
         "total": 90000,
         "used_pct": 27,
         "rolling": false
@@ -102,31 +102,31 @@
     {
       "label": "dale***",
       "glm": {
-        "requests_5h": 511,
-        "weighted_5h": 96.0,
+        "requests_5h": 514,
+        "weighted_5h": 224.0,
         "detail_5h": {
           "glm-5.3": {
             "peak": 0,
-            "off_peak": 511,
-            "weighted": 96.0
+            "off_peak": 514,
+            "weighted": 224.0
           }
         },
-        "requests_7d": 1127,
-        "weighted_7d": 1760.0,
+        "requests_7d": 1130,
+        "weighted_7d": 1840.0,
         "detail_7d": {
           "glm-5.3": {
             "peak": 456,
-            "off_peak": 665,
-            "weighted": 1753.9
+            "off_peak": 668,
+            "weighted": 1833.6
           },
           "glm-5.3-flash": {
             "peak": 6,
             "off_peak": 0,
-            "weighted": 6.1
+            "weighted": 6.4
           }
         },
-        "weighted_raw_5h": 462.2,
-        "weighted_raw_7d": 1872.5
+        "weighted_raw_5h": 464.9,
+        "weighted_raw_7d": 1875.2
       },
       "qwen": {
         "requests_5h": 0,
