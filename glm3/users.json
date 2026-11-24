@@ -1,8 +1,8 @@
 {
   "ok": true,
   "schema": 5,
-  "updated_ms": 1795507206000,
-  "updated_str": "2026-11-24 16:00:06",
+  "updated_ms": 1795509007000,
+  "updated_str": "2026-11-24 16:30:07",
   "plans": [
     {
       "key": "glm",
@@ -17,8 +17,8 @@
         "7d": 8000
       },
       "share": {
-        "5h": 1600,
-        "7d": 8000
+        "5h": 1066,
+        "7d": 2666
       },
       "billing": {
         "peak": "工作日 14:00–18:00 (UTC+8)",
@@ -71,22 +71,22 @@
     },
     "qwen": {
       "5h": {
-        "start": 1795489206,
-        "end": 1795507206,
-        "start_str": "11-24 11:00",
-        "end_str": "11-24 16:00"
+        "start": 1795491007,
+        "end": 1795509007,
+        "start_str": "11-24 11:30",
+        "end_str": "11-24 16:30"
       },
       "7d": {
-        "start": 1794902406,
-        "end": 1795507206,
-        "start_str": "11-17 16:00",
-        "end_str": "11-24 16:00"
+        "start": 1794904207,
+        "end": 1795509007,
+        "start_str": "11-17 16:30",
+        "end_str": "11-24 16:30"
       },
       "30d": {
-        "start": 1792915206,
-        "end": 1795507206,
-        "start_str": "10-25 16:00",
-        "end_str": "11-24 16:00"
+        "start": 1792917007,
+        "end": 1795509007,
+        "start_str": "10-25 16:30",
+        "end_str": "11-24 16:30"
       }
     }
   },
@@ -94,32 +94,33 @@
     {
       "label": "dale***",
       "glm": {
-        "requests_5h": 268,
-        "weighted_5h": 1392.0,
+        "requests_5h": 291,
+        "weighted_5h": 1600.0,
         "detail_5h": {
           "glm-5.3": {
-            "peak": 268,
+            "peak": 291,
             "off_peak": 0,
-            "weighted": 1392.0
+            "weighted": 1600.0
           }
         },
-        "requests_7d": 1332,
-        "weighted_7d": 1392.0,
+        "requests_7d": 1355,
+        "weighted_7d": 1600.0,
         "detail_7d": {
           "glm-5.3": {
-            "peak": 268,
+            "peak": 291,
             "off_peak": 1064,
-            "weighted": 1392.0
+            "weighted": 1600.0
           }
         },
-        "weighted_raw_5h": 785.9,
-        "weighted_raw_7d": 1746.2
+        "weighted_raw_5h": 856.8,
+        "weighted_raw_7d": 1817.2
       },
       "qwen": {
         "requests_5h": 0,
         "requests_7d": 0,
         "requests_30d": 85
-      }
+      },
+      "suspended": 1795518877
     }
   ]
 }
