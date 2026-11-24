@@ -1,8 +1,8 @@
 {
   "ok": true,
   "schema": 5,
-  "updated_ms": 1795518010000,
-  "updated_str": "2026-11-24 19:00:10",
+  "updated_ms": 1795519808000,
+  "updated_str": "2026-11-24 19:30:08",
   "plans": [
     {
       "key": "glm",
@@ -57,10 +57,10 @@
   "windows": {
     "glm": {
       "5h": {
-        "start": 1795500877,
-        "end": 1795518877,
-        "start_str": "11-24 14:14",
-        "end_str": "11-24 19:14"
+        "start": 1795519808,
+        "end": 1795519808,
+        "start_str": "11-24 19:30",
+        "end_str": "11-24 19:30"
       },
       "7d": {
         "start": 1795482046,
@@ -71,22 +71,22 @@
     },
     "qwen": {
       "5h": {
-        "start": 1795500010,
-        "end": 1795518010,
-        "start_str": "11-24 14:00",
-        "end_str": "11-24 19:00"
+        "start": 1795501808,
+        "end": 1795519808,
+        "start_str": "11-24 14:30",
+        "end_str": "11-24 19:30"
       },
       "7d": {
-        "start": 1794913210,
-        "end": 1795518010,
-        "start_str": "11-17 19:00",
-        "end_str": "11-24 19:00"
+        "start": 1794915008,
+        "end": 1795519808,
+        "start_str": "11-17 19:30",
+        "end_str": "11-24 19:30"
       },
       "30d": {
-        "start": 1792926010,
-        "end": 1795518010,
-        "start_str": "10-25 19:00",
-        "end_str": "11-24 19:00"
+        "start": 1792927808,
+        "end": 1795519808,
+        "start_str": "10-25 19:30",
+        "end_str": "11-24 19:30"
       }
     }
   },
@@ -94,15 +94,8 @@
     {
       "label": "dale***",
       "glm": {
-        "requests_5h": 291,
-        "weighted_5h": 1600.0,
-        "detail_5h": {
-          "glm-5.3": {
-            "peak": 291,
-            "off_peak": 0,
-            "weighted": 1600.0
-          }
-        },
+        "requests_5h": 0,
+        "weighted_5h": 0.0,
         "requests_7d": 1355,
         "weighted_7d": 1600.0,
         "detail_7d": {
@@ -112,15 +105,14 @@
             "weighted": 1600.0
           }
         },
-        "weighted_raw_5h": 856.8,
+        "weighted_raw_5h": 0.0,
         "weighted_raw_7d": 1817.2
       },
       "qwen": {
         "requests_5h": 0,
         "requests_7d": 0,
         "requests_30d": 85
-      },
-      "suspended": 1795518877
+      }
     }
   ]
 }
