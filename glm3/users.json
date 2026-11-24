@@ -1,13 +1,13 @@
 {
   "ok": true,
   "schema": 5,
-  "updated_ms": 1795505402000,
-  "updated_str": "2026-11-24 15:30:02",
+  "updated_ms": 1795506296000,
+  "updated_str": "2026-11-24 15:44:56",
   "plans": [
     {
       "key": "glm",
       "label": "GLM Coding Plan",
-      "model": "glm-5.3 + flash + 5.4",
+      "model": "glm-5.3 + flash + glm-5.4",
       "windows": [
         "5h",
         "7d"
@@ -30,6 +30,10 @@
           "GLM-5.3-Flash": {
             "peak": 1.2,
             "off_peak": 0.4
+          },
+          "GLM-5.4": {
+            "peak": 2.0,
+            "off_peak": 0.67
           }
         },
         "unit": "等效 prompts",
@@ -67,13 +71,13 @@
     },
     "qwen": {
       "5h": {
-        "start": 1795487402,
-        "end": 1795505402,
-        "start_str": "11-24 10:30",
-        "end_str": "11-24 15:30",
-        "used": 406,
+        "start": 1795488296,
+        "end": 1795506296,
+        "start_str": "11-24 10:44",
+        "end_str": "11-24 15:44",
+        "used": 522,
         "total": 6000,
-        "used_pct": 7,
+        "used_pct": 9,
         "rolling": true
       },
       "7d": {
@@ -81,7 +85,7 @@
         "end": 1795968000,
         "start_str": "11-23 00:00",
         "end_str": "11-30 00:00",
-        "used": 2133,
+        "used": 2249,
         "total": 45000,
         "used_pct": 5,
         "rolling": false
@@ -91,7 +95,7 @@
         "end": 1796227200,
         "start_str": "11-03 00:00",
         "end_str": "12-03 00:00",
-        "used": 25426,
+        "used": 25542,
         "total": 90000,
         "used_pct": 28,
         "rolling": false
@@ -102,26 +106,26 @@
     {
       "label": "dale***",
       "glm": {
-        "requests_5h": 188,
-        "weighted_5h": 800.0,
+        "requests_5h": 218,
+        "weighted_5h": 992.0,
         "detail_5h": {
           "glm-5.3": {
-            "peak": 188,
+            "peak": 218,
             "off_peak": 0,
-            "weighted": 800.0
+            "weighted": 992.0
           }
         },
-        "requests_7d": 1252,
-        "weighted_7d": 800.0,
+        "requests_7d": 1282,
+        "weighted_7d": 992.0,
         "detail_7d": {
           "glm-5.3": {
-            "peak": 188,
+            "peak": 218,
             "off_peak": 1064,
-            "weighted": 800.0
+            "weighted": 992.0
           }
         },
-        "weighted_raw_5h": 540.2,
-        "weighted_raw_7d": 1500.5
+        "weighted_raw_5h": 637.0,
+        "weighted_raw_7d": 1597.3
       },
       "qwen": {
         "requests_5h": 0,
