@@ -1,8 +1,8 @@
 {
   "ok": true,
   "schema": 5,
-  "updated_ms": 1795492802000,
-  "updated_str": "2026-11-24 12:00:02",
+  "updated_ms": 1795494602000,
+  "updated_str": "2026-11-24 12:30:02",
   "plans": [
     {
       "key": "glm",
@@ -67,13 +67,13 @@
     },
     "qwen": {
       "5h": {
-        "start": 1795474802,
-        "end": 1795492802,
-        "start_str": "11-24 07:00",
-        "end_str": "11-24 12:00",
-        "used": 133,
+        "start": 1795476602,
+        "end": 1795494602,
+        "start_str": "11-24 07:30",
+        "end_str": "11-24 12:30",
+        "used": 152,
         "total": 6000,
-        "used_pct": 2,
+        "used_pct": 3,
         "rolling": true
       },
       "7d": {
@@ -81,7 +81,7 @@
         "end": 1795968000,
         "start_str": "11-23 00:00",
         "end_str": "11-30 00:00",
-        "used": 1742,
+        "used": 1771,
         "total": 45000,
         "used_pct": 4,
         "rolling": false
@@ -91,7 +91,7 @@
         "end": 1796227200,
         "start_str": "11-03 00:00",
         "end_str": "12-03 00:00",
-        "used": 25035,
+        "used": 25064,
         "total": 90000,
         "used_pct": 28,
         "rolling": false
