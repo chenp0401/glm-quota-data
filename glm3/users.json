@@ -1,8 +1,8 @@
 {
   "ok": true,
   "schema": 5,
-  "updated_ms": 1795505065000,
-  "updated_str": "2026-11-24 15:24:25",
+  "updated_ms": 1795505402000,
+  "updated_str": "2026-11-24 15:30:02",
   "plans": [
     {
       "key": "glm",
@@ -67,10 +67,10 @@
     },
     "qwen": {
       "5h": {
-        "start": 1795487065,
-        "end": 1795505065,
-        "start_str": "11-24 10:24",
-        "end_str": "11-24 15:24",
+        "start": 1795487402,
+        "end": 1795505402,
+        "start_str": "11-24 10:30",
+        "end_str": "11-24 15:30",
         "used": 406,
         "total": 6000,
         "used_pct": 7,
@@ -102,26 +102,26 @@
     {
       "label": "dale***",
       "glm": {
-        "requests_5h": 162,
-        "weighted_5h": 592.0,
+        "requests_5h": 188,
+        "weighted_5h": 800.0,
         "detail_5h": {
           "glm-5.3": {
-            "peak": 162,
+            "peak": 188,
             "off_peak": 0,
-            "weighted": 592.0
+            "weighted": 800.0
           }
         },
-        "requests_7d": 1226,
-        "weighted_7d": 592.0,
+        "requests_7d": 1252,
+        "weighted_7d": 800.0,
         "detail_7d": {
           "glm-5.3": {
-            "peak": 162,
+            "peak": 188,
             "off_peak": 1064,
-            "weighted": 592.0
+            "weighted": 800.0
           }
         },
-        "weighted_raw_5h": 461.8,
-        "weighted_raw_7d": 1422.1
+        "weighted_raw_5h": 540.2,
+        "weighted_raw_7d": 1500.5
       },
       "qwen": {
         "requests_5h": 0,
