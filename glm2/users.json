@@ -1,8 +1,8 @@
 {
   "ok": true,
   "schema": 5,
-  "updated_ms": 1795510806000,
-  "updated_str": "2026-11-24 17:00:06",
+  "updated_ms": 1795512606000,
+  "updated_str": "2026-11-24 17:30:06",
   "plans": [
     {
       "key": "glm",
@@ -57,10 +57,10 @@
   "windows": {
     "glm": {
       "5h": {
-        "start": 1795510806,
-        "end": 1795510806,
-        "start_str": "11-24 17:00",
-        "end_str": "11-24 17:00"
+        "start": 1795511200,
+        "end": 1795529200,
+        "start_str": "11-24 17:06",
+        "end_str": "11-24 22:06"
       },
       "7d": {
         "start": 1795062467,
@@ -71,22 +71,22 @@
     },
     "qwen": {
       "5h": {
-        "start": 1795492806,
-        "end": 1795510806,
-        "start_str": "11-24 12:00",
-        "end_str": "11-24 17:00"
+        "start": 1795494606,
+        "end": 1795512606,
+        "start_str": "11-24 12:30",
+        "end_str": "11-24 17:30"
       },
       "7d": {
-        "start": 1794906006,
-        "end": 1795510806,
-        "start_str": "11-17 17:00",
-        "end_str": "11-24 17:00"
+        "start": 1794907806,
+        "end": 1795512606,
+        "start_str": "11-17 17:30",
+        "end_str": "11-24 17:30"
       },
       "30d": {
-        "start": 1792918806,
-        "end": 1795510806,
-        "start_str": "10-25 17:00",
-        "end_str": "11-24 17:00"
+        "start": 1792920606,
+        "end": 1795512606,
+        "start_str": "10-25 17:30",
+        "end_str": "11-24 17:30"
       }
     }
   },
@@ -97,12 +97,12 @@
         "requests_5h": 0,
         "weighted_5h": 0.0,
         "requests_7d": 1881,
-        "weighted_7d": 3855.0,
+        "weighted_7d": 3758.7,
         "detail_7d": {
           "glm-5.3": {
             "peak": 498,
             "off_peak": 1383,
-            "weighted": 3855.0
+            "weighted": 3758.7
           }
         },
         "weighted_raw_5h": 0.0,
@@ -117,24 +117,36 @@
     {
       "label": "whoam***",
       "glm": {
-        "requests_5h": 0,
-        "weighted_5h": 0.0,
-        "requests_7d": 418,
-        "weighted_7d": 460.1,
-        "detail_7d": {
+        "requests_5h": 52,
+        "weighted_5h": 78.7,
+        "detail_5h": {
           "glm-5.3": {
-            "peak": 0,
-            "off_peak": 34,
-            "weighted": 56.2
+            "peak": 1,
+            "off_peak": 0,
+            "weighted": 2.8
           },
           "glm-5.3-flash": {
-            "peak": 72,
-            "off_peak": 312,
-            "weighted": 403.8
+            "peak": 51,
+            "off_peak": 0,
+            "weighted": 75.9
           }
         },
-        "weighted_raw_5h": 0.0,
-        "weighted_raw_7d": 327.2
+        "requests_7d": 470,
+        "weighted_7d": 556.5,
+        "detail_7d": {
+          "glm-5.3": {
+            "peak": 1,
+            "off_peak": 34,
+            "weighted": 58.7
+          },
+          "glm-5.3-flash": {
+            "peak": 123,
+            "off_peak": 312,
+            "weighted": 497.7
+          }
+        },
+        "weighted_raw_5h": 78.7,
+        "weighted_raw_7d": 405.9
       },
       "qwen": {}
     },
@@ -144,12 +156,12 @@
         "requests_5h": 0,
         "weighted_5h": 0.0,
         "requests_7d": 1,
-        "weighted_7d": 4.9,
+        "weighted_7d": 4.8,
         "detail_7d": {
           "glm-5.4": {
             "peak": 1,
             "off_peak": 0,
-            "weighted": 4.9
+            "weighted": 4.8
           }
         },
         "weighted_raw_5h": 0.0,
