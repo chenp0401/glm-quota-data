@@ -1,8 +1,8 @@
 {
   "ok": true,
   "schema": 10,
-  "updated_ms": 1795504108000,
-  "updated_str": "2026-11-24 15:08:28",
+  "updated_ms": 1795505002000,
+  "updated_str": "2026-11-24 15:23:22",
   "plans": [
     {
       "key": "glm",
@@ -63,10 +63,10 @@
     },
     "qwen": {
       "5h": {
-        "start": 1795486108,
-        "end": 1795504108,
-        "start_str": "11-24 10:08",
-        "end_str": "11-24 15:08",
+        "start": 1795487002,
+        "end": 1795505002,
+        "start_str": "11-24 10:23",
+        "end_str": "11-24 15:23",
         "rolling": true
       },
       "7d": null,
@@ -77,22 +77,22 @@
     {
       "label": "hzq***",
       "glm": {
-        "requests_5h": 68,
-        "requests_7d": 264,
-        "weighted_5h": 135.1,
-        "weighted_7d": 269.3,
+        "requests_5h": 77,
+        "requests_7d": 273,
+        "weighted_5h": 154.2,
+        "weighted_7d": 288.4,
         "detail_5h": {
           "glm-5.4": {
-            "peak": 68,
+            "peak": 77,
             "off_peak": 0,
-            "weighted": 135.1
+            "weighted": 154.2
           }
         },
         "detail_7d": {
           "glm-5.4": {
-            "peak": 70,
+            "peak": 79,
             "off_peak": 194,
-            "weighted": 269.3
+            "weighted": 288.4
           }
         }
       },
