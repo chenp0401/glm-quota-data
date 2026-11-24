@@ -1,36 +1,36 @@
 {
   "ok": true,
   "level": "MAX",
-  "updated_ms": 1795509031479,
-  "updated_str": "2026-11-24 16:30:31",
+  "updated_ms": 1795510830356,
+  "updated_str": "2026-11-24 17:00:30",
   "windows": [
     {
       "key": "5h",
       "label": "5 小时",
-      "used_pct": 14,
+      "used_pct": 20,
       "reset_ms": 1795518140613,
       "reset_str": "11-24 19:02",
-      "remain_sec": 9109
+      "remain_sec": 7310
     },
     {
       "key": "7d",
       "label": "7 天",
-      "used_pct": 4,
+      "used_pct": 5,
       "reset_ms": 1796086834984,
       "reset_str": "12-01 09:00",
-      "remain_sec": 577803
+      "remain_sec": 576004
     }
   ],
   "mcp": {
-    "used": 8,
+    "used": 14,
     "total": 4000,
     "pct": 1,
-    "remain": 3992,
+    "remain": 3986,
     "reset_str": "12-13 19:48",
     "details": [
       {
         "modelCode": "search-prime",
-        "usage": 5
+        "usage": 11
       },
       {
         "modelCode": "web-reader",
