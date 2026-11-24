@@ -353,7 +353,7 @@ function usersPanel(USERS){
   const qplan = plans.find(p => p.key === 'qwen');
   const W = USERS.windows || {};
 
-  // 列组: GLM 按模型拆两组(5.3 / Flash) + 合计列; Qwen 一组(5h/7d/30d)
+  // 列组: GLM 按模型拆三组(5.3 / Flash / 5.4) + 合计列; Qwen 一组(5h/7d/30d)
   const wins = PLAN_COLS.filter(c => (plan.windows || []).indexOf(c[0]) >= 0);
   // 把 GLM plan 元数据交给模块级变量, 供 glmSumCell 读取(见其定义处注释)
   GLM_PLAN = (USERS.plans || []).find(p => p.key === 'glm')
@@ -368,6 +368,7 @@ function usersPanel(USERS){
     groups.push(
       {head: 'GLM-5.3', sub: wins, cell: (u, k) => glmCell(u, 'glm-5.3', k)},
       {head: 'GLM-5.3-Flash', sub: wins, cell: (u, k) => glmCell(u, 'glm-5.3-flash', k)},
+      {head: 'GLM-5.4', sub: wins, cell: (u, k) => glmCell(u, 'glm-5.4', k)},
       {head: 'GLM 合计', sub: wins, cell: (u, k) => glmSumCell(u, k)});
   } else {
     groups.push({head: plan.label || 'GLM', sub: wins, cell: (u, k) => {
@@ -425,7 +426,7 @@ function usersPanel(USERS){
       <thead>${head1}${head2}</thead>
       <tbody>${rows}</tbody>
     </table>
-    <div class="note"><div>智谱 GLM · GLM-5.3 + Flash + FlashX：${seg}</div>${qwenNote}${billingNote}</div>
+    <div class="note"><div>智谱 GLM · GLM-5.3 + Flash + FlashX + GLM-5.4：${seg}</div>${qwenNote}${billingNote}</div>
   </div>`;
 }
 
@@ -492,7 +493,7 @@ async function loadGLM(){
          <span class="src">官方配额接口 · 更新于 ${fmtTime(d.updated_ms)}</span>
        </div>` +
       cardsHTML(d.windows || []) +
-      `<div class="billing"><b>⚠️ 两套数字的关系请先看这里：</b>上方圆环的百分比<b>取自官方接口，是唯一权威</b>；下方表格是我们按本地日志估算的<b>用户间相对份额</b>，用于额度分配与封禁判定，<b>两者数值不会完全吻合</b>（实测偏差可达数十个百分点，官方计量口径未完全公开）。<br>本地估算式（2026-09-27 三订阅联合回归标定）：<code>当量 =（0.9 + token数 ÷ 30万）× 时段倍率</code>，即<b>每次调用约 0.9 当量起步，上下文越大额外消耗越多</b>；时段倍率 GLM-5.3 <b>非高峰 ×1 / 高峰 ×3</b>、GLM-5.3-Flash <b>×0.4 / ×1.2</b>、GLM-5.3-FlashX <b>按 GLM-5.3 全价 ×1 / ×3</b>（2026-10-26 起计入），高峰 = 工作日 14:00–18:00（UTC+8）。<span class="share-line">${shareLine()}</span><br><span class="qg-rt-notice"><b>🛡️ 2026-11-07 起份额实时生效：</b>每次请求都按「当前已用 + 本次估算」即时判定，个人用满红线后<b>下一次请求立即返回 HTTP 403</b>「额度已用尽（… 窗口实时估算 X / 红线 当量）」，不再等 5 分钟巡检；5 小时窗口随滚动释放、7 天窗口到重置时刻后<b>自动恢复</b>（最迟约 5 分钟），无需申请解封。看到 403 请先对照下表自己的占比，属于正常限额而非故障。</span></div>`;
+      `<div class="billing"><b>⚠️ 两套数字的关系请先看这里：</b>上方圆环的百分比<b>取自官方接口，是唯一权威</b>；下方表格是我们按本地日志估算的<b>用户间相对份额</b>，用于额度分配与封禁判定，<b>两者数值不会完全吻合</b>（实测偏差可达数十个百分点，官方计量口径未完全公开）。<br>本地估算式（2026-09-27 三订阅联合回归标定）：<code>当量 =（0.9 + token数 ÷ 30万）× 时段倍率</code>，即<b>每次调用约 0.9 当量起步，上下文越大额外消耗越多</b>；时段倍率 GLM-5.3 <b>非高峰 ×1 / 高峰 ×3</b>、GLM-5.3-Flash <b>×0.4 / ×1.2</b>、GLM-5.3-FlashX <b>按 GLM-5.3 全价 ×1 / ×3</b>（2026-10-26 起计入）、GLM-5.4 <b>非高峰 ×0.67 / 高峰 ×2</b>（2026-11-24 起计入），高峰 = 工作日 14:00–18:00（UTC+8）。<span class="share-line">${shareLine()}</span><br><span class="qg-rt-notice"><b>🛡️ 2026-11-07 起份额实时生效：</b>每次请求都按「当前已用 + 本次估算」即时判定，个人用满红线后<b>下一次请求立即返回 HTTP 403</b>「额度已用尽（… 窗口实时估算 X / 红线 当量）」，不再等 5 分钟巡检；5 小时窗口随滚动释放、7 天窗口到重置时刻后<b>自动恢复</b>（最迟约 5 分钟），无需申请解封。看到 403 请先对照下表自己的占比，属于正常限额而非故障。</span></div>`;
     markUpdated(d.updated_ms);
     tick();
   }catch(e){

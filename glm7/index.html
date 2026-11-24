@@ -314,7 +314,7 @@ function usersPanel(USERS){
   const qplan = plans.find(p => p.key === 'qwen');
   const W = USERS.windows || {};
 
-  // 列组: GLM 按模型拆两组(5.3 / Flash) + 合计列; Qwen 一组(5h/7d/30d)
+  // 列组: GLM 按模型拆三组(5.3 / Flash / 5.4) + 合计列; Qwen 一组(5h/7d/30d)
   const wins = PLAN_COLS.filter(c => (plan.windows || []).indexOf(c[0]) >= 0);
   // 把 GLM plan 元数据交给模块级变量, 供 glmSumCell 读取(见其定义处注释)
   GLM_PLAN = (USERS.plans || []).find(p => p.key === 'glm')
@@ -328,6 +328,7 @@ function usersPanel(USERS){
     groups.push(
       {head: 'GLM-5.3', sub: wins, cell: (u, k) => glmCell(u, 'glm-5.3', k)},
       {head: 'GLM-5.3-Flash', sub: wins, cell: (u, k) => glmCell(u, 'glm-5.3-flash', k)},
+      {head: 'GLM-5.4', sub: wins, cell: (u, k) => glmCell(u, 'glm-5.4', k)},
       {head: 'GLM 合计', sub: wins, cell: (u, k) => glmSumCell(u, k)});
   } else {
     groups.push({head: plan.label || 'GLM', sub: wins, cell: (u, k) => {
