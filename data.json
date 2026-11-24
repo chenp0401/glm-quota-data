@@ -1,8 +1,8 @@
 {
   "ok": true,
   "level": "MAX",
-  "updated_ms": 1795516212994,
-  "updated_str": "2026-11-24 18:30:12",
+  "updated_ms": 1795518026913,
+  "updated_str": "2026-11-24 19:00:26",
   "windows": [
     {
       "key": "5h",
@@ -10,7 +10,7 @@
       "used_pct": 33,
       "reset_ms": 1795518140613,
       "reset_str": "11-24 19:02",
-      "remain_sec": 1927
+      "remain_sec": 113
     },
     {
       "key": "7d",
@@ -18,19 +18,19 @@
       "used_pct": 8,
       "reset_ms": 1796086834984,
       "reset_str": "12-01 09:00",
-      "remain_sec": 570621
+      "remain_sec": 568808
     }
   ],
   "mcp": {
-    "used": 15,
+    "used": 17,
     "total": 4000,
     "pct": 1,
-    "remain": 3985,
+    "remain": 3983,
     "reset_str": "12-13 19:48",
     "details": [
       {
         "modelCode": "search-prime",
-        "usage": 12
+        "usage": 14
       },
       {
         "modelCode": "web-reader",
