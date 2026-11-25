@@ -1,8 +1,8 @@
 {
   "ok": true,
   "level": "MAX",
-  "updated_ms": 1795599013438,
-  "updated_str": "2026-11-25 17:30:13",
+  "updated_ms": 1795600824712,
+  "updated_str": "2026-11-25 18:00:24",
   "windows": [
     {
       "key": "5h",
@@ -10,7 +10,7 @@
       "used_pct": 11,
       "reset_ms": 1795608346436,
       "reset_str": "11-25 20:05",
-      "remain_sec": 9332
+      "remain_sec": 7521
     },
     {
       "key": "7d",
@@ -18,7 +18,7 @@
       "used_pct": 26,
       "reset_ms": 1796086834984,
       "reset_str": "12-01 09:00",
-      "remain_sec": 487821
+      "remain_sec": 486010
     }
   ],
   "mcp": {
