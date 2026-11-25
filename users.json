@@ -1,8 +1,8 @@
 {
   "ok": true,
   "schema": 10,
-  "updated_ms": 1795644009000,
-  "updated_str": "2026-11-26 06:00:09",
+  "updated_ms": 1795645809000,
+  "updated_str": "2026-11-26 06:30:09",
   "plans": [
     {
       "key": "glm",
@@ -53,10 +53,10 @@
   "windows": {
     "glm": {
       "5h": {
-        "start": 1795626383,
-        "end": 1795644383,
-        "start_str": "11-26 01:06",
-        "end_str": "11-26 06:06"
+        "start": 1795644415,
+        "end": 1795662415,
+        "start_str": "11-26 06:06",
+        "end_str": "11-26 11:06"
       },
       "7d": {
         "start": 1795482034,
@@ -67,10 +67,10 @@
     },
     "qwen": {
       "5h": {
-        "start": 1795626009,
-        "end": 1795644009,
-        "start_str": "11-26 01:00",
-        "end_str": "11-26 06:00",
+        "start": 1795627809,
+        "end": 1795645809,
+        "start_str": "11-26 01:30",
+        "end_str": "11-26 06:30",
         "rolling": true
       },
       "7d": null,
@@ -81,27 +81,27 @@
     {
       "label": "hzq***",
       "glm": {
-        "requests_5h": 562,
-        "requests_7d": 3073,
-        "weighted_5h": 365.2,
-        "weighted_7d": 2555.2,
+        "requests_5h": 15,
+        "requests_7d": 3095,
+        "weighted_5h": 9.2,
+        "weighted_7d": 2569.0,
         "detail_5h": {
           "glm-5.4": {
             "peak": 0,
-            "off_peak": 562,
-            "weighted": 365.2
+            "off_peak": 15,
+            "weighted": 9.2
           }
         },
         "detail_7d": {
           "glm-5.4": {
             "peak": 410,
-            "off_peak": 2663,
-            "weighted": 2555.2
+            "off_peak": 2685,
+            "weighted": 2569.0
           }
         }
       },
       "qwen": {
-        "requests_5h": 330,
+        "requests_5h": 428,
         "requests_7d": null,
         "requests_30d": null
       },
@@ -113,27 +113,16 @@
     {
       "label": "849***",
       "glm": {
-        "requests_5h": 113,
-        "requests_7d": 1252,
-        "weighted_5h": 43.7,
-        "weighted_7d": 599.7,
-        "detail_5h": {
-          "glm-5.3-flash": {
-            "peak": 0,
-            "off_peak": 108,
-            "weighted": 39.1
-          },
-          "glm-5.4": {
-            "peak": 0,
-            "off_peak": 5,
-            "weighted": 4.6
-          }
-        },
+        "requests_5h": 0,
+        "requests_7d": 1272,
+        "weighted_5h": 0.0,
+        "weighted_7d": 607.0,
+        "detail_5h": {},
         "detail_7d": {
           "glm-5.3-flash": {
             "peak": 141,
-            "off_peak": 1035,
-            "weighted": 527.7
+            "off_peak": 1055,
+            "weighted": 535.0
           },
           "glm-5.4": {
             "peak": 0,
@@ -148,7 +137,7 @@
         }
       },
       "qwen": {
-        "requests_5h": 42,
+        "requests_5h": 37,
         "requests_7d": null,
         "requests_30d": null
       },
