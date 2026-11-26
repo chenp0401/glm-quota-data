@@ -1,8 +1,8 @@
 {
   "ok": true,
   "schema": 5,
-  "updated_ms": 1795678207000,
-  "updated_str": "2026-11-26 15:30:07",
+  "updated_ms": 1795680007000,
+  "updated_str": "2026-11-26 16:00:07",
   "plans": [
     {
       "key": "glm",
@@ -57,10 +57,10 @@
   "windows": {
     "glm": {
       "5h": {
-        "start": 1795678207,
-        "end": 1795678207,
-        "start_str": "11-26 15:30",
-        "end_str": "11-26 15:30"
+        "start": 1795679324,
+        "end": 1795697324,
+        "start_str": "11-26 15:48",
+        "end_str": "11-26 20:48"
       },
       "7d": {
         "start": 1795667267,
@@ -71,26 +71,62 @@
     },
     "qwen": {
       "5h": {
-        "start": 1795660207,
-        "end": 1795678207,
-        "start_str": "11-26 10:30",
-        "end_str": "11-26 15:30"
+        "start": 1795662007,
+        "end": 1795680007,
+        "start_str": "11-26 11:00",
+        "end_str": "11-26 16:00"
       },
       "7d": {
-        "start": 1795073407,
-        "end": 1795678207,
-        "start_str": "11-19 15:30",
-        "end_str": "11-26 15:30"
+        "start": 1795075207,
+        "end": 1795680007,
+        "start_str": "11-19 16:00",
+        "end_str": "11-26 16:00"
       },
       "30d": {
-        "start": 1793086207,
-        "end": 1795678207,
-        "start_str": "10-27 15:30",
-        "end_str": "11-26 15:30"
+        "start": 1793088007,
+        "end": 1795680007,
+        "start_str": "10-27 16:00",
+        "end_str": "11-26 16:00"
       }
     }
   },
   "users": [
+    {
+      "label": "whoam***",
+      "glm": {
+        "requests_5h": 41,
+        "weighted_5h": 55.9,
+        "detail_5h": {
+          "glm-5.3": {
+            "peak": 1,
+            "off_peak": 0,
+            "weighted": 2.8
+          },
+          "glm-5.3-flash": {
+            "peak": 40,
+            "off_peak": 0,
+            "weighted": 53.1
+          }
+        },
+        "requests_7d": 41,
+        "weighted_7d": 55.9,
+        "detail_7d": {
+          "glm-5.3": {
+            "peak": 1,
+            "off_peak": 0,
+            "weighted": 2.8
+          },
+          "glm-5.3-flash": {
+            "peak": 40,
+            "off_peak": 0,
+            "weighted": 53.1
+          }
+        },
+        "weighted_raw_5h": 55.9,
+        "weighted_raw_7d": 55.9
+      },
+      "qwen": {}
+    },
     {
       "label": "chent***",
       "glm": {
@@ -119,19 +155,6 @@
         "requests_7d": 0,
         "requests_30d": 85
       }
-    },
-    {
-      "label": "whoam***",
-      "glm": {
-        "requests_5h": 0,
-        "weighted_5h": 0.0,
-        "requests_7d": 0,
-        "weighted_7d": 0.0,
-        "weighted_raw_5h": 0.0,
-        "weighted_raw_7d": 0.0
-      },
-      "qwen": {},
-      "zero": true
     }
   ]
 }
