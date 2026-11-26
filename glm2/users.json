@@ -1,8 +1,8 @@
 {
   "ok": true,
   "schema": 5,
-  "updated_ms": 1795658406000,
-  "updated_str": "2026-11-26 10:00:06",
+  "updated_ms": 1795660206000,
+  "updated_str": "2026-11-26 10:30:06",
   "plans": [
     {
       "key": "glm",
@@ -71,22 +71,22 @@
     },
     "qwen": {
       "5h": {
-        "start": 1795640406,
-        "end": 1795658406,
-        "start_str": "11-26 05:00",
-        "end_str": "11-26 10:00"
+        "start": 1795642206,
+        "end": 1795660206,
+        "start_str": "11-26 05:30",
+        "end_str": "11-26 10:30"
       },
       "7d": {
-        "start": 1795053606,
-        "end": 1795658406,
-        "start_str": "11-19 10:00",
-        "end_str": "11-26 10:00"
+        "start": 1795055406,
+        "end": 1795660206,
+        "start_str": "11-19 10:30",
+        "end_str": "11-26 10:30"
       },
       "30d": {
-        "start": 1793066406,
-        "end": 1795658406,
-        "start_str": "10-27 10:00",
-        "end_str": "11-26 10:00"
+        "start": 1793068206,
+        "end": 1795660206,
+        "start_str": "10-27 10:30",
+        "end_str": "11-26 10:30"
       }
     }
   },
@@ -97,12 +97,12 @@
         "requests_5h": 0,
         "weighted_5h": 0.0,
         "requests_7d": 1881,
-        "weighted_7d": 3518.6,
+        "weighted_7d": 3481.4,
         "detail_7d": {
           "glm-5.3": {
             "peak": 498,
             "off_peak": 1383,
-            "weighted": 3518.6
+            "weighted": 3481.4
           }
         },
         "weighted_raw_5h": 0.0,
@@ -117,41 +117,41 @@
     {
       "label": "whoam***",
       "glm": {
-        "requests_5h": 163,
-        "weighted_5h": 93.5,
+        "requests_5h": 232,
+        "weighted_5h": 48.0,
         "detail_5h": {
           "glm-5.3": {
             "peak": 0,
             "off_peak": 18,
-            "weighted": 20.0
+            "weighted": 7.4
           },
           "glm-5.3-flash": {
             "peak": 0,
-            "off_peak": 145,
-            "weighted": 73.5
+            "off_peak": 214,
+            "weighted": 40.6
           }
         },
-        "requests_7d": 880,
-        "weighted_7d": 876.9,
+        "requests_7d": 949,
+        "weighted_7d": 914.2,
         "detail_7d": {
           "glm-5.3": {
             "peak": 1,
             "off_peak": 75,
-            "weighted": 110.4
+            "weighted": 109.2
           },
           "glm-5.3-flash": {
             "peak": 153,
-            "off_peak": 564,
-            "weighted": 681.0
+            "off_peak": 633,
+            "weighted": 720.4
           },
           "glm-5.4": {
             "peak": 0,
             "off_peak": 87,
-            "weighted": 85.5
+            "weighted": 84.6
           }
         },
-        "weighted_raw_5h": 93.5,
-        "weighted_raw_7d": 683.2
+        "weighted_raw_5h": 130.2,
+        "weighted_raw_7d": 719.9
       },
       "qwen": {}
     },
@@ -161,12 +161,12 @@
         "requests_5h": 0,
         "weighted_5h": 0.0,
         "requests_7d": 1,
-        "weighted_7d": 4.5,
+        "weighted_7d": 4.4,
         "detail_7d": {
           "glm-5.4": {
             "peak": 1,
             "off_peak": 0,
-            "weighted": 4.5
+            "weighted": 4.4
           }
         },
         "weighted_raw_5h": 0.0,
