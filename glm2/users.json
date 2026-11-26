@@ -1,8 +1,8 @@
 {
   "ok": true,
   "schema": 5,
-  "updated_ms": 1795665605000,
-  "updated_str": "2026-11-26 12:00:05",
+  "updated_ms": 1795667409000,
+  "updated_str": "2026-11-26 12:30:09",
   "plans": [
     {
       "key": "glm",
@@ -63,50 +63,56 @@
         "end_str": "11-26 13:45"
       },
       "7d": {
-        "start": 1795062467,
-        "end": 1795667267,
-        "start_str": "11-19 12:27",
-        "end_str": "11-26 12:27"
+        "start": 1795667267,
+        "end": 1796272067,
+        "start_str": "11-26 12:27",
+        "end_str": "12-03 12:27"
       }
     },
     "qwen": {
       "5h": {
-        "start": 1795647605,
-        "end": 1795665605,
-        "start_str": "11-26 07:00",
-        "end_str": "11-26 12:00"
+        "start": 1795649409,
+        "end": 1795667409,
+        "start_str": "11-26 07:30",
+        "end_str": "11-26 12:30"
       },
       "7d": {
-        "start": 1795060805,
-        "end": 1795665605,
-        "start_str": "11-19 12:00",
-        "end_str": "11-26 12:00"
+        "start": 1795062609,
+        "end": 1795667409,
+        "start_str": "11-19 12:30",
+        "end_str": "11-26 12:30"
       },
       "30d": {
-        "start": 1793073605,
-        "end": 1795665605,
-        "start_str": "10-27 12:00",
-        "end_str": "11-26 12:00"
+        "start": 1793075409,
+        "end": 1795667409,
+        "start_str": "10-27 12:30",
+        "end_str": "11-26 12:30"
       }
     }
   },
   "users": [
     {
+      "label": "chent***",
+      "glm": {
+        "requests_5h": 0,
+        "weighted_5h": 0.0,
+        "requests_7d": 0,
+        "weighted_7d": 0.0,
+        "weighted_raw_5h": 0.0,
+        "weighted_raw_7d": 0.0
+      },
+      "qwen": {},
+      "zero": true
+    },
+    {
       "label": "dale***",
       "glm": {
         "requests_5h": 0,
         "weighted_5h": 0.0,
-        "requests_7d": 1881,
-        "weighted_7d": 3522.8,
-        "detail_7d": {
-          "glm-5.3": {
-            "peak": 498,
-            "off_peak": 1383,
-            "weighted": 3522.8
-          }
-        },
+        "requests_7d": 0,
+        "weighted_7d": 0.0,
         "weighted_raw_5h": 0.0,
-        "weighted_raw_7d": 2741.5
+        "weighted_raw_7d": 0.0
       },
       "qwen": {
         "requests_5h": 0,
@@ -117,65 +123,29 @@
     {
       "label": "whoam***",
       "glm": {
-        "requests_5h": 261,
+        "requests_5h": 293,
         "weighted_5h": 48.0,
         "detail_5h": {
           "glm-5.3": {
             "peak": 0,
-            "off_peak": 18,
+            "off_peak": 20,
             "weighted": 6.3
           },
           "glm-5.3-flash": {
             "peak": 0,
-            "off_peak": 215,
-            "weighted": 35.1
+            "off_peak": 245,
+            "weighted": 35.7
           },
           "glm-5.4": {
             "peak": 0,
             "off_peak": 28,
-            "weighted": 6.6
+            "weighted": 6.0
           }
         },
-        "requests_7d": 978,
-        "weighted_7d": 952.7,
-        "detail_7d": {
-          "glm-5.3": {
-            "peak": 1,
-            "off_peak": 75,
-            "weighted": 110.5
-          },
-          "glm-5.3-flash": {
-            "peak": 153,
-            "off_peak": 634,
-            "weighted": 729.7
-          },
-          "glm-5.4": {
-            "peak": 0,
-            "off_peak": 115,
-            "weighted": 112.4
-          }
-        },
-        "weighted_raw_5h": 151.7,
-        "weighted_raw_7d": 741.4
-      },
-      "qwen": {}
-    },
-    {
-      "label": "chent***",
-      "glm": {
-        "requests_5h": 0,
-        "weighted_5h": 0.0,
-        "requests_7d": 1,
-        "weighted_7d": 4.5,
-        "detail_7d": {
-          "glm-5.4": {
-            "peak": 1,
-            "off_peak": 0,
-            "weighted": 4.5
-          }
-        },
-        "weighted_raw_5h": 0.0,
-        "weighted_raw_7d": 3.5
+        "requests_7d": 0,
+        "weighted_7d": 0.0,
+        "weighted_raw_5h": 166.3,
+        "weighted_raw_7d": 0.0
       },
       "qwen": {}
     }
