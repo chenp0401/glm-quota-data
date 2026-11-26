@@ -1,8 +1,8 @@
 {
   "ok": true,
   "schema": 5,
-  "updated_ms": 1795690807000,
-  "updated_str": "2026-11-26 19:00:07",
+  "updated_ms": 1795692607000,
+  "updated_str": "2026-11-26 19:30:07",
   "plans": [
     {
       "key": "glm",
@@ -57,10 +57,10 @@
   "windows": {
     "glm": {
       "5h": {
-        "start": 1795673581,
-        "end": 1795691581,
-        "start_str": "11-26 14:13",
-        "end_str": "11-26 19:13"
+        "start": 1795692607,
+        "end": 1795692607,
+        "start_str": "11-26 19:30",
+        "end_str": "11-26 19:30"
       },
       "7d": {
         "start": 1795482046,
@@ -71,22 +71,22 @@
     },
     "qwen": {
       "5h": {
-        "start": 1795672807,
-        "end": 1795690807,
-        "start_str": "11-26 14:00",
-        "end_str": "11-26 19:00"
+        "start": 1795674607,
+        "end": 1795692607,
+        "start_str": "11-26 14:30",
+        "end_str": "11-26 19:30"
       },
       "7d": {
-        "start": 1795086007,
-        "end": 1795690807,
-        "start_str": "11-19 19:00",
-        "end_str": "11-26 19:00"
+        "start": 1795087807,
+        "end": 1795692607,
+        "start_str": "11-19 19:30",
+        "end_str": "11-26 19:30"
       },
       "30d": {
-        "start": 1793098807,
-        "end": 1795690807,
-        "start_str": "10-27 19:00",
-        "end_str": "11-26 19:00"
+        "start": 1793100607,
+        "end": 1795692607,
+        "start_str": "10-27 19:30",
+        "end_str": "11-26 19:30"
       }
     }
   },
@@ -94,20 +94,8 @@
     {
       "label": "dale***",
       "glm": {
-        "requests_5h": 26,
-        "weighted_5h": 128.0,
-        "detail_5h": {
-          "glm-5.3": {
-            "peak": 2,
-            "off_peak": 0,
-            "weighted": 11.5
-          },
-          "glm-5.4": {
-            "peak": 24,
-            "off_peak": 0,
-            "weighted": 116.5
-          }
-        },
+        "requests_5h": 0,
+        "weighted_5h": 0.0,
         "requests_7d": 2615,
         "weighted_7d": 2720.0,
         "detail_7d": {
@@ -127,7 +115,7 @@
             "weighted": 633.1
           }
         },
-        "weighted_raw_5h": 59.9,
+        "weighted_raw_5h": 0.0,
         "weighted_raw_7d": 2633.5
       },
       "qwen": {
