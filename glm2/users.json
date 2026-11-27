@@ -1,8 +1,8 @@
 {
   "ok": true,
   "schema": 5,
-  "updated_ms": 1795741206000,
-  "updated_str": "2026-11-27 09:00:06",
+  "updated_ms": 1795743006000,
+  "updated_str": "2026-11-27 09:30:06",
   "plans": [
     {
       "key": "glm",
@@ -71,22 +71,22 @@
     },
     "qwen": {
       "5h": {
-        "start": 1795723206,
-        "end": 1795741206,
-        "start_str": "11-27 04:00",
-        "end_str": "11-27 09:00"
+        "start": 1795725006,
+        "end": 1795743006,
+        "start_str": "11-27 04:30",
+        "end_str": "11-27 09:30"
       },
       "7d": {
-        "start": 1795136406,
-        "end": 1795741206,
-        "start_str": "11-20 09:00",
-        "end_str": "11-27 09:00"
+        "start": 1795138206,
+        "end": 1795743006,
+        "start_str": "11-20 09:30",
+        "end_str": "11-27 09:30"
       },
       "30d": {
-        "start": 1793149206,
-        "end": 1795741206,
-        "start_str": "10-28 09:00",
-        "end_str": "11-27 09:00"
+        "start": 1793151006,
+        "end": 1795743006,
+        "start_str": "10-28 09:30",
+        "end_str": "11-27 09:30"
       }
     }
   },
@@ -94,8 +94,8 @@
     {
       "label": "whoam***",
       "glm": {
-        "requests_5h": 19,
-        "weighted_5h": 20.0,
+        "requests_5h": 61,
+        "weighted_5h": 38.9,
         "detail_5h": {
           "glm-5.3": {
             "peak": 0,
@@ -104,12 +104,12 @@
           },
           "glm-5.3-flash": {
             "peak": 0,
-            "off_peak": 1,
-            "weighted": 0.5
+            "off_peak": 43,
+            "weighted": 19.4
           }
         },
-        "requests_7d": 138,
-        "weighted_7d": 201.1,
+        "requests_7d": 180,
+        "weighted_7d": 220.0,
         "detail_7d": {
           "glm-5.3": {
             "peak": 1,
@@ -118,12 +118,12 @@
           },
           "glm-5.3-flash": {
             "peak": 118,
-            "off_peak": 1,
-            "weighted": 178.8
+            "off_peak": 43,
+            "weighted": 197.7
           }
         },
-        "weighted_raw_5h": 20.0,
-        "weighted_raw_7d": 201.1
+        "weighted_raw_5h": 38.9,
+        "weighted_raw_7d": 220.0
       },
       "qwen": {}
     },
