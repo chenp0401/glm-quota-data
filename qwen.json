@@ -2,41 +2,41 @@
   "ok": true,
   "provider": "阿里云百炼 Coding Plan",
   "level": "PRO",
-  "updated_ms": 1795806023236,
-  "updated_str": "2026-11-28 03:00:23",
+  "updated_ms": 1795807813485,
+  "updated_str": "2026-11-28 03:30:13",
   "windows": [
     {
       "key": "5h",
       "label": "5 小时",
-      "used": 262,
+      "used": 153,
       "total": 6000,
-      "used_pct": 4,
+      "used_pct": 3,
       "rolling": true,
-      "reset_ms": 1795806024000,
-      "reset_str": "11-28 03:00",
+      "reset_ms": 1795807814000,
+      "reset_str": "11-28 03:30",
       "remain_sec": 0
     },
     {
       "key": "7d",
       "label": "7 天",
-      "used": 7808,
+      "used": 7824,
       "total": 45000,
       "used_pct": 17,
       "rolling": false,
       "reset_ms": 1795968000000,
       "reset_str": "11-30 00:00",
-      "remain_sec": 161976
+      "remain_sec": 160186
     },
     {
       "key": "30d",
       "label": "30 天",
-      "used": 31101,
+      "used": 31117,
       "total": 90000,
       "used_pct": 35,
       "rolling": false,
       "reset_ms": 1796227200000,
       "reset_str": "12-03 00:00",
-      "remain_sec": 421176
+      "remain_sec": 419386
     }
   ]
 }
