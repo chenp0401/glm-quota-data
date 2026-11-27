@@ -1,8 +1,8 @@
 {
   "ok": true,
   "schema": 10,
-  "updated_ms": 1795797010000,
-  "updated_str": "2026-11-28 00:30:10",
+  "updated_ms": 1795798810000,
+  "updated_str": "2026-11-28 01:00:10",
   "plans": [
     {
       "key": "glm",
@@ -67,10 +67,10 @@
     },
     "qwen": {
       "5h": {
-        "start": 1795779010,
-        "end": 1795797010,
-        "start_str": "11-27 19:30",
-        "end_str": "11-28 00:30",
+        "start": 1795780810,
+        "end": 1795798810,
+        "start_str": "11-27 20:00",
+        "end_str": "11-28 01:00",
         "rolling": true
       },
       "7d": null,
@@ -81,22 +81,22 @@
     {
       "label": "hzq***",
       "glm": {
-        "requests_5h": 88,
-        "requests_7d": 4028,
-        "weighted_5h": 55.2,
-        "weighted_7d": 3260.7,
+        "requests_5h": 109,
+        "requests_7d": 4049,
+        "weighted_5h": 68.6,
+        "weighted_7d": 3274.1,
         "detail_5h": {
           "glm-5.4": {
             "peak": 0,
-            "off_peak": 88,
-            "weighted": 55.2
+            "off_peak": 109,
+            "weighted": 68.6
           }
         },
         "detail_7d": {
           "glm-5.4": {
             "peak": 476,
-            "off_peak": 3552,
-            "weighted": 3260.7
+            "off_peak": 3573,
+            "weighted": 3274.1
           }
         }
       },
@@ -113,22 +113,22 @@
     {
       "label": "849***",
       "glm": {
-        "requests_5h": 314,
-        "requests_7d": 3025,
-        "weighted_5h": 113.7,
-        "weighted_7d": 1420.6,
+        "requests_5h": 344,
+        "requests_7d": 3055,
+        "weighted_5h": 124.6,
+        "weighted_7d": 1431.5,
         "detail_5h": {
           "glm-5.3-flash": {
             "peak": 0,
-            "off_peak": 314,
-            "weighted": 113.7
+            "off_peak": 344,
+            "weighted": 124.6
           }
         },
         "detail_7d": {
           "glm-5.3-flash": {
             "peak": 318,
-            "off_peak": 2516,
-            "weighted": 1256.0
+            "off_peak": 2546,
+            "weighted": 1266.8
           },
           "glm-5.4": {
             "peak": 0,
@@ -143,7 +143,7 @@
         }
       },
       "qwen": {
-        "requests_5h": 91,
+        "requests_5h": 96,
         "requests_7d": null,
         "requests_30d": null
       },
