@@ -1,8 +1,8 @@
 {
   "ok": true,
   "schema": 5,
-  "updated_ms": 1795842006000,
-  "updated_str": "2026-11-28 13:00:06",
+  "updated_ms": 1795843807000,
+  "updated_str": "2026-11-28 13:30:07",
   "plans": [
     {
       "key": "glm",
@@ -57,10 +57,10 @@
   "windows": {
     "glm": {
       "5h": {
-        "start": 1795842006,
-        "end": 1795842006,
-        "start_str": "11-28 13:00",
-        "end_str": "11-28 13:00"
+        "start": 1795842427,
+        "end": 1795860427,
+        "start_str": "11-28 13:07",
+        "end_str": "11-28 18:07"
       },
       "7d": {
         "start": 1795482046,
@@ -71,22 +71,22 @@
     },
     "qwen": {
       "5h": {
-        "start": 1795824006,
-        "end": 1795842006,
-        "start_str": "11-28 08:00",
-        "end_str": "11-28 13:00"
+        "start": 1795825807,
+        "end": 1795843807,
+        "start_str": "11-28 08:30",
+        "end_str": "11-28 13:30"
       },
       "7d": {
-        "start": 1795237206,
-        "end": 1795842006,
-        "start_str": "11-21 13:00",
-        "end_str": "11-28 13:00"
+        "start": 1795239007,
+        "end": 1795843807,
+        "start_str": "11-21 13:30",
+        "end_str": "11-28 13:30"
       },
       "30d": {
-        "start": 1793250006,
-        "end": 1795842006,
-        "start_str": "10-29 13:00",
-        "end_str": "11-28 13:00"
+        "start": 1793251807,
+        "end": 1795843807,
+        "start_str": "10-29 13:30",
+        "end_str": "11-28 13:30"
       }
     }
   },
@@ -94,29 +94,36 @@
     {
       "label": "dale***",
       "glm": {
-        "requests_5h": 0,
-        "weighted_5h": 0.0,
-        "requests_7d": 2615,
+        "requests_5h": 176,
+        "weighted_5h": 63.7,
+        "detail_5h": {
+          "glm-5.3-flash": {
+            "peak": 0,
+            "off_peak": 176,
+            "weighted": 63.7
+          }
+        },
+        "requests_7d": 2791,
         "weighted_7d": 2960.0,
         "detail_7d": {
           "glm-5.3": {
             "peak": 293,
             "off_peak": 1179,
-            "weighted": 2173.2
+            "weighted": 2121.9
           },
           "glm-5.3-flash": {
             "peak": 0,
-            "off_peak": 240,
-            "weighted": 97.7
+            "off_peak": 416,
+            "weighted": 165.4
           },
           "glm-5.4": {
             "peak": 24,
             "off_peak": 879,
-            "weighted": 689.0
+            "weighted": 672.7
           }
         },
-        "weighted_raw_5h": 0.0,
-        "weighted_raw_7d": 2633.5
+        "weighted_raw_5h": 63.7,
+        "weighted_raw_7d": 2697.2
       },
       "qwen": {
         "requests_5h": 0,
